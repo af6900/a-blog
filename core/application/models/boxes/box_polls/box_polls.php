@@ -14,7 +14,7 @@ class box_polls extends CI_Model
 			 foreach($get_answer as $answer_row){
 				 $return .='<ul class="UlLeftMenu">';
 				 $return .='<li class="LiRightMenu">';
-				 $return .= '<input type="radio" name="polls" class="radio"   value="'.$answer_row->id_answer.'"/>'.$answer_row->answer_title;
+				 $return .= '<input type="radio" name="polls" class="radio" value="'.$answer_row->id_answer.'"/>'.$answer_row->answer_title;
 				 $return .='</li>';
 				 $return .='</ul>';
 				 }
