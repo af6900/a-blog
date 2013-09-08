@@ -54,7 +54,11 @@
               </div>
         </div>
         <div class="col-md-6 text-left">
+        	<?php if($avatar != ''):?>
         	<img src="<?php echo site_url('upload/avatar/'.$avatar)?>" width="100" class="img-thumbnail"/>
+            <?php else:?>
+            <img src="<?php echo site_url('assets/admin/img/avatar.jpg')?>" width="100" class="img-thumbnail"/>
+            <?php endif?>
         </div>
         <div class="col-md-6">
        		 <div class="form-group">

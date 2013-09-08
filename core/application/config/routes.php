@@ -132,6 +132,7 @@ $route['admin-users'] = "admin/adminUser";
 $route['admin-users/(:any)'] = 'admin/adminUser';
 $route['admin-user-save'] = "admin/adminUser";
 $route['admin-users-list'] = 'admin/adminUser/listUser';
+$route['admin-users-list/(:any)'] = 'admin/adminUser/listUser';
 $route['admin-user-update'] = "admin/adminUser/update";
 $route['admin-user-delete/(:any)'] = "admin/adminUser/delete";
 $route['admin-user-edit/(:any)'] = "admin/adminUser/edit";

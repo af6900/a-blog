@@ -28,6 +28,7 @@ class adminUser extends Admin_Controller {
 			}
 		
 		$data['user'] = $this->model_admin_users->get();
+		$this->db->cache_delete('admin-users-list', 'index');
 		$this->out('adminUser','newUser',$data);	
 		}
 	//=== delete User Code ===\\	
@@ -42,7 +43,9 @@ class adminUser extends Admin_Controller {
 		
 	//=== Edit User Page ===\\	
 	public function edit(){
-		$data = $this->model_admin_users->get_by(array('id'=>$this->uri->segment(2))); 
+		$id = $this->uri->segment(2);
+		$this->db->cache_delete('admin-user-edit', $id);
+		$data = $this->model_admin_users->get_by(array('id'=>$id)); 
 		if($data){ 
 			foreach($data as $row){
 			    $data['id']    = $row->id;
@@ -54,7 +57,7 @@ class adminUser extends Admin_Controller {
 				}
 			$this->out('adminUser','editUser',$data);	
 			} else{
-				redirect('admin-users/addUser');
+				redirect('admin-users-list');
 				}
 		}
 		//=== Update User Code ===\\
@@ -83,9 +86,9 @@ class adminUser extends Admin_Controller {
 	     	$id = $this->input->post('id',TRUE);
 			$result = $this->model_admin_users->save($data,$id);
 			if($result){
-				redirect('admin-users/success');
+				redirect('admin-users-list/success');
 			}else{
-				redirect('admin-users/error');
+				redirect('admin-users-list/error');
 				}	
 			
 		}
