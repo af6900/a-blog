@@ -2,7 +2,7 @@
 class box_visit extends CI_Model
 {
 	public function initialize(){
-		
+		$this->db->cache_off();
 		$db_date = $this->lib_database->get_filde('a_visit',NULL,'date');
 		if($db_date < date('Ymd')){
 				

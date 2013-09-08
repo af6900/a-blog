@@ -12,7 +12,6 @@ class Admin extends Admin_Controller {
 	{
 		$this->db->cache_delete('admin', 'index');
 		$this->db->cache_delete('ajaxProcessor', 'index');
-		//$this->db->cache_delete_all();
 		$data['articleList'] = $this->lib_database->limit('a_article',NULL, 5,NULL,'id','DESC');
 		$data['articleCout'] =  $this->lib_database->count_all('a_article');	
 		$data['sectionCout'] =  $this->lib_database->count_all('a_article_section');
@@ -25,6 +24,12 @@ class Admin extends Admin_Controller {
 		$data['total'] = $this->lib_database->get_filde('a_visit',NULL,'total');
 		
 		$this->out('panel','panel',$data); 
+		
+		$expire = $this->CI->lib_database->get_filde('a_web_config',NULL,'clear_cache');
+		if($expire < time()){
+			$this->db->cache_delete_all();
+			$this->CI->lib_database->save('a_web_config',array('clear_cache'=> time()+ 7200),array('id'=>1));
+			}
 	}
 
 	public function fileManager()
