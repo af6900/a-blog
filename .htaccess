@@ -1,0 +1,15 @@
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteCond $1 !^(index\.php|images|core|assets|robots\.txt)
+RewriteRule ^(.+)$ index.php/$1 [L,QSA]
+
+<Files .*>
+	Order Deny,Allow
+	Deny From All
+</Files>
+
+Options -Indexes

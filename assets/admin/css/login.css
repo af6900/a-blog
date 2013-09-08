@@ -1,0 +1,20 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background:url(../img/linen.jpg);
+}
+.pwreset{
+	display:none;
+	}
+.msg {
+	display:none;
+	direction:rtl;
+	padding-top:5px !important;
+	padding-bottom:5px !important;
+	font-size:14px !important;
+ }
+.send{ 
+	display:none !important;
+ }

@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:14px;
+	background:#EEE;
+	}
+table{
+	text-align:right;
+	border:1px solid #CCC;
+	background:#FFF;
+	}
+td{
+	padding:5px;
+	}
+input[type="text"]{
+	border:1px solid #CCC;
+	border-radius:5px;
+	padding:5px;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:12px;
+	width:280px;
+	}
+	
+input[type="submit"]{
+	border:1px solid #CCC;
+	cursor:pointer;
+	width:100px;
+	height:30px;
+	border-radius:5px;
+	float:left;
+	}
+input[type="submit"]:hover{
+     background:#DDD;
+	}
+		
+.article{
+	border:1px solid #CCC;
+	border-radius:5px;
+	padding:5px;
+	}				
