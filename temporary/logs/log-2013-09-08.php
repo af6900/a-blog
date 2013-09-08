@@ -50,3 +50,5 @@ ERROR - 2013-09-08 10:23:13 --> 404 Page Not Found --> templates
 ERROR - 2013-09-08 10:23:13 --> 404 Page Not Found --> templates
 ERROR - 2013-09-08 10:23:14 --> 404 Page Not Found --> templates
 ERROR - 2013-09-08 10:23:14 --> 404 Page Not Found --> templates
+ERROR - 2013-09-08 12:39:17 --> Severity: Warning  --> opendir(temporary/database_cache/ajaxProcessor+index/,temporary/database_cache/ajaxProcessor+index/): The system cannot find the file specified. (code: 2) C:\xampp\htdocs\blog\core\system\helpers\file_helper.php 126
+ERROR - 2013-09-08 12:39:17 --> Severity: Warning  --> opendir(temporary/database_cache/ajaxProcessor+index/): failed to open dir: No such file or directory C:\xampp\htdocs\blog\core\system\helpers\file_helper.php 126

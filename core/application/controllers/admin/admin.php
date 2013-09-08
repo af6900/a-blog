@@ -10,6 +10,7 @@ class Admin extends Admin_Controller {
 	
 	public function index()
 	{
+		$this->db->cache_delete('admin', 'index');
 		$this->db->cache_delete('ajaxProcessor', 'index');
 		//$this->db->cache_delete_all();
 		$data['articleList'] = $this->lib_database->limit('a_article',NULL, 5,NULL,'id','DESC');

@@ -9,11 +9,13 @@ class login extends CI_Controller {
     }
 	
 	public function index(){
+		$this->db->cache_delete('login', 'index');
 		$this->ip_banned->banned();
 		$this->load->view('admin/Login/login'); 
 		}
 		
 	public function validate_credentials(){
+		$this->db->cache_delete('validate_credentials', 'index');
 		$userName = htmlspecialchars(mysql_real_escape_string($this->input->get('name',TRUE)),ENT_QUOTES);
 		$pass     = htmlspecialchars(mysql_real_escape_string($this->input->get('pass',TRUE)),ENT_QUOTES);
 		$query = array('LoginName'=>$userName,'LoginPass'=>trim($this->ablog->a_hash($pass)));
