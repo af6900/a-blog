@@ -54,19 +54,19 @@
               <div class="panel-body">
                 <ul class="list-group">
                   <li class="list-group-item">
-                    <span class="badge pull-left"><?php echo $this->lib_database->count_all('a_useronline')?></span>
+                    <span class="badge pull-left"><?php echo $this->lib_database->count_all('useronline')?></span>
                     کاربر
                   </li>
                   <li class="list-group-item">
-                    <span class="badge pull-left"><?php echo $this->lib_database->get_filde('a_visit',NULL,'dey')?></span>
+                    <span class="badge pull-left"><?php echo $this->lib_database->get_filde('visit',NULL,'dey')?></span>
                     امروز
                   </li>
                   <li class="list-group-item">
-                    <span class="badge pull-left"><?php echo $this->lib_database->get_filde('a_visit',NULL,'week')?></span>
+                    <span class="badge pull-left"><?php echo $this->lib_database->get_filde('visit',NULL,'week')?></span>
                     دیروز
                   </li>
                   <li class="list-group-item">
-                    <span class="badge pull-left"><?php echo $this->lib_database->get_filde('a_visit',NULL,'total')?></span>
+                    <span class="badge pull-left"><?php echo $this->lib_database->get_filde('visit',NULL,'total')?></span>
                     کل
                   </li>
                 </ul>

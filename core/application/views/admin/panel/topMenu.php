@@ -50,7 +50,7 @@
           <ul class="dropdown-menu">
                   <li><?php echo anchor('new-pages','صفحه جدید');?></li>
                    <li class="divider"></li>
-                   <?php $pages = $this->lib_database->get('a_pages')?>
+                   <?php $pages = $this->lib_database->get('pages')?>
                    <?php foreach($pages as $row):?>
                        <li><?php echo anchor('edit-pages/'.$row->id, $row->title)?></li>
                   <?php endforeach ?>

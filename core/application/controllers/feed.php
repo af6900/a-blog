@@ -22,7 +22,7 @@ class Feed extends CI_Controller {
 		$data['Site_Url'] = base_url();	  
         $data['encoding'] = 'utf-8'; // the encoding  
 		$where = "archive ='0' and publish_up <= '".adate(4).date('His')."' and publish_down >= '".adate(4)."'";
-		$data['posts'] = $this->lib_database->limit('a_article',$where,10,NULL,'id','DESC');
+		$data['posts'] = $this->lib_database->limit('article',$where,10,NULL,'id','DESC');
 		
  		$this->output->set_header("Content-Type: application/rss+xml"); 
         $this->load->view('../../../templates/feed/rss', $data); 

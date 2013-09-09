@@ -60,7 +60,7 @@
     
     <div class="tab-pane" id="tab2">
     	<?php foreach($position as $row):?>
-        	<?php $block = $this->lib_database->get('a_block',NULL,array('position'=>"$row"),'row','ASC');?>
+        	<?php $block = $this->lib_database->get('block',NULL,array('position'=>"$row"),'row','ASC');?>
             		<label><?php echo $row?></label> 
             		<ul id='order' class="list-group order">
 						<?php foreach($block as $rows):?>
