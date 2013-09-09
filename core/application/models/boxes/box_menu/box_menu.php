@@ -3,9 +3,9 @@ class box_menu extends CI_Model
 {
 	public function initialize($name){
 		
-			$block = $this->lib_database->get_filde('a_block',array('name'=>$name),'id');
-			$position = $this->lib_database->get_filde('a_block',array('name'=>$name),'position');
-			$menu = $this->lib_database->get('a_menu',NULL,array('block'=>$block));
+			$block = $this->lib_database->get_filde('block',array('name'=>$name),'id');
+			$position = $this->lib_database->get_filde('block',array('name'=>$name),'position');
+			$menu = $this->lib_database->get('menu',NULL,array('block'=>$block));
 			if($position == 'top'){
 				$return = "<ul>";
 				foreach ($menu as $row){

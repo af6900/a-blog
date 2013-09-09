@@ -13,7 +13,7 @@ class CI_template
 	
 	function get_template_name(){
 		$this->CI->db->where('active','1');
-		$result = $this->CI->db->get('a_templates')->result();
+		$result = $this->CI->db->get('templates')->result();
 		foreach($result as $row){
 			return $row->name;
 			}
@@ -56,15 +56,15 @@ class CI_template
 		$article_id = $this->CI->uri->segment(2);
 		if(! is_null($article_id) AND $page =='summary'){
 			$this->CI->db->cache_delete('default', 'index');
-			$visit = 1 + $this->CI->lib_database->get_filde('a_article',array('id'=>$article_id),'visit');
-		 	$this->CI->lib_database->save('a_article',array('visit'=>$visit),array('id'=>$article_id));
+			$visit = 1 + $this->CI->lib_database->get_filde('article',array('id'=>$article_id),'visit');
+		 	$this->CI->lib_database->save('article',array('visit'=>$visit),array('id'=>$article_id));
 			}
 		/* section visit count */	
 		$section =urldecode($this->CI->uri->segment(2));	
 		if(! is_null($section) AND $page == 'section'){
 			$this->CI->db->cache_delete('default', 'index');
-			$visit = 1 + $this->CI->lib_database->get_filde('a_article_section',array('title'=>$section),'visit');
-			$this->CI->lib_database->save('a_article_section',array('visit'=>$visit),array('title'=>$section));
+			$visit = 1 + $this->CI->lib_database->get_filde('article_section',array('title'=>$section),'visit');
+			$this->CI->lib_database->save('article_section',array('visit'=>$visit),array('title'=>$section));
 			}
 		
 		

@@ -1,7 +1,7 @@
 <?php
 class Model_section extends MY_Model{
 	
-		protected $_table_name = 'a_article_section';
+		protected $_table_name = 'article_section';
 		protected $_order_by = 'id';
 		protected $_rules = array('title' => array(
 										'field' => 'title', 
@@ -23,7 +23,7 @@ class Model_section extends MY_Model{
 					 $this->db->limit(5,$count);
 					 $this->db->where('archive','0');
 					 $this->db->where('sectionId',$id);
-			$data  = $this->db->get('a_article'); 
+			$data  = $this->db->get('article'); 
 			return $data->result();
 				}
 				

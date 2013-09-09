@@ -7,11 +7,11 @@ function add_box($position = NULL){
 		$CI->db->order_by('row');
 		$CI->db->where('position',$position);
 		$CI->db->where('active',1); 
-		$po = $CI->db->get('a_block')->result();
+		$po = $CI->db->get('block')->result();
 		
 	foreach($po as $row){
 		  if($row->box !='0'){
-			   $box = $CI->lib_database->get('a_boxes',NULL,array('id'=>$row->box)); 
+			   $box = $CI->lib_database->get('boxes',NULL,array('id'=>$row->box)); 
 				foreach($box as $rows){ 
 					$name = $rows->name;
 					$CI->load->model("boxes/".$name."/".$name."",'',TRUE);
@@ -25,13 +25,13 @@ function add_box($position = NULL){
 function edit_box($id){
 		$CI =& get_instance();
 		$CI->db->where('id',$id);
-		$data = $CI->db->get('a_boxes');
+		$data = $CI->db->get('boxes');
 		foreach($data->result() as $row){
 			$box_name = $row->name;
 			$box_title = $row->title;
 			}
 		$CI->db->where('box_name',$box_name);	
-		$data = $CI->db->get('a_configuration');	
+		$data = $CI->db->get('configuration');	
 		$data->result();
 		$return = '<input type="hidden" name="box_name" value="'.$box_name.'"/>';
 	    $return .='<table border="0" dir="rtl" width="100%">';

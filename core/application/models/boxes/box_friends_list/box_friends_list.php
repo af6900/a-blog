@@ -5,7 +5,7 @@ class box_friends_list extends CI_Model
 
 			$count = $this->model_boxes->configuration_kay('COUNT_FRIEND_LIST');
 			
-		   $friends = $this->lib_database->limit('a_friends',NULL, $count); 
+		   $friends = $this->lib_database->limit('friends',NULL, $count); 
 		    $return = '<div class="boxTitle">لیست دوستان</div>';
 		    $return .= "<ul class='UlLeftMenu'>";
 			foreach ($friends as $row){

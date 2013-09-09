@@ -2,7 +2,7 @@
 
 function contact($name,$email,$subject,$message,$captcha){
   $CI =& get_instance();
-  $to    = $CI->lib_database->get_filde('a_web_config',array('id'=>1),'Admin_Email');
+  $to    = $CI->lib_database->get_filde('web_config',array('id'=>1),'Admin_Email');
   $match_captch =  $CI->ablog->match_captch($captcha);
   if($match_captch == true){
 	  $CI->email->from($email, $name);
@@ -22,14 +22,14 @@ function comment_send_email($to){
 		$CI =& get_instance();
 
 
-		$emailTemplate = $CI->lib_database->get('a_email_template',NULL,array('id'=>3));
+		$emailTemplate = $CI->lib_database->get('email_template',NULL,array('id'=>3));
 		foreach( $emailTemplate as $row ){
 			$template['tem'] = $row->template;
 			$template['title'] = $row->title;
 			}
 		
-		$email = $CI->lib_database->get_filde('a_web_config',array('id'=>1),'Admin_Email');
-		$WebTitle    = $CI->lib_database->get_filde('a_web_config',array('id'=>1),'Web_Title');
+		$email = $CI->lib_database->get_filde('web_config',array('id'=>1),'Admin_Email');
+		$WebTitle    = $CI->lib_database->get_filde('web_config',array('id'=>1),'Web_Title');
 				
 		$message = $CI->input->post('answer');	
 		$search  = array($message,$template['title'],$WebTitle['title']);	
@@ -53,18 +53,18 @@ function comment_send_email($to){
 function comment_send_admin($name, $email, $text,$author){ 
 		$CI =& get_instance();
 
-		$to    = $CI->lib_database->get_filde('a_admin_user',array('UserEmail'=>$author),'UserEmail');
+		$to    = $CI->lib_database->get_filde('admin_user',array('UserEmail'=>$author),'UserEmail');
 			
 		$name  = htmlspecialchars(mysql_real_escape_string($name));
 		$email = htmlspecialchars(mysql_real_escape_string($email));
 		
-		$emailTemplate = $CI->lib_database->get('a_email_template',NULL,array('id'=>2));
+		$emailTemplate = $CI->lib_database->get('email_template',NULL,array('id'=>2));
 		foreach( $emailTemplate as $row ){
 			$template['tem'] = $row->template;
 			$template['title'] = $row->title;
 			}
 		
-		$WebTitle['title']    = $CI->lib_database->get_filde('a_web_config',array('id'=>1),'Web_Title');
+		$WebTitle['title']    = $CI->lib_database->get_filde('web_config',array('id'=>1),'Web_Title');
 				
 		$message = htmlspecialchars(mysql_real_escape_string($text));	
 		$search  = array($message,$template['title'],$WebTitle['title']);	
@@ -86,7 +86,7 @@ function comment_send_admin($name, $email, $text,$author){
 function send_email($message, $title, $to){
 	  
 	  $CI =& get_instance();
-	  $email = $CI->lib_database->get_filde('a_web_config',array('id'=>1),'Admin_Email');
+	  $email = $CI->lib_database->get_filde('web_config',array('id'=>1),'Admin_Email');
 	  $config['mailtype'] = 'html';
 	  $CI->email->initialize($config);
 	  $CI->email->from($email, $CI->session->userdata('name'));

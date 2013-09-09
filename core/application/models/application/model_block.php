@@ -1,7 +1,7 @@
 <?php
 class model_block extends MY_Model{
 	
-		protected $_table_name = 'a_block';
+		protected $_table_name = 'block';
 		protected $_order_by = 'id';
 		protected $_rules = array(
 		'name' => array(
@@ -32,14 +32,14 @@ class model_block extends MY_Model{
 	);	
 	public function delete(){
 		$this->db->where('block',$this->uri->segment(2));
-		 foreach($this->db->get('a_menu')->result() as $row){
+		 foreach($this->db->get('menu')->result() as $row){
 			  $this->db->where('parent',$row->id);
-			  $this->db->delete('a_menu');
+			  $this->db->delete('menu');
 			 }
 			  $this->db->where('block',$id); 
-		$this->db->delete('a_menu');
+		$this->db->delete('menu');
 		$this->db->where('id',$id);
-		$this->db->delete('a_block');
+		$this->db->delete('block');
 		}
 				
 	

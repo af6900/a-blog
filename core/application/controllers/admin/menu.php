@@ -13,7 +13,7 @@ class menu extends Admin_Controller {
 			$data = $this->model_menu->array_from_post(array('name','block','link'));
 			$this->model_menu->save($data);
 			}
-		$data['pages'] = $this->lib_database->get('a_pages');	
+		$data['pages'] = $this->lib_database->get('pages');	
 		$data['article'] = $this->model_article->get();
 		$data['section'] = $this->model_section->get();
 		$data['block'] = $this->model_block->get_by(array('box'=>9));

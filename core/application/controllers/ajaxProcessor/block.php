@@ -24,7 +24,7 @@ class block extends Admin_Controller {
                     'id' => $items[$item],
                     'row' => $order = $item
             );
-			$this->lib_database->save('a_block',$data,array('id'=>$data['id']));
+			$this->lib_database->save('block',$data,array('id'=>$data['id']));
         }
 	}	
 	

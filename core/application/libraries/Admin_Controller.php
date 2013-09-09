@@ -6,11 +6,6 @@ function __construct ()
 	{
 		parent::__construct();
 		$this->CI =& get_instance();
-		
-		
-		
-		
-		
 		if($this->session->userdata('is_logged_in') === FALSE){
 			redirect('login');
 			}

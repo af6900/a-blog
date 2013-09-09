@@ -12,4 +12,9 @@ RewriteRule ^(.+)$ index.php/$1 [L,QSA]
 	Deny From All
 </Files>
 
+<Files *.sql> 
+    Order deny,allow
+    Deny from all
+</Files>
+
 Options -Indexes

@@ -3,7 +3,7 @@ class box_author extends CI_Model
 {
 	public function initialize(){
 			$count = $this->model_boxes->configuration_kay('COUNT_AUTHOR');
-		    $author = $this->lib_database->group_by('a_article','author',$count);
+		    $author = $this->lib_database->group_by('article','author',$count);
 		    $return = '<div class="boxTitle">نویسنده ها</div>';
 		    $return .= "<ul class='UlLeftMenu'>";
 			foreach ($author as $row){

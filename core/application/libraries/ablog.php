@@ -21,7 +21,7 @@ class CI_ablog
 	
 	public function match_captch($captcha){
 		
-		$query = $this->CI->db->limit(1)->get_where('a_captcha', array('captcha' => $captcha));
+		$query = $this->CI->db->limit(1)->get_where('captcha', array('captcha' => $captcha));
 		if($query->num_rows() == 0){
 			return false;
 			}else{

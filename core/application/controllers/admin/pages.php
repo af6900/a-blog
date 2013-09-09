@@ -20,18 +20,18 @@ class pages extends Admin_Controller {
 		$option = $this->input->post('option');
 		$data = array('enTitle'=>$enTitle,'title'=>$title, 'keywords'=>$keywords, 'discription'=>$desc, 'option'=>$option,
 			'author'=>$this->session->userdata('name'));
-		$this->lib_database->save('a_pages',$data);
+		$this->lib_database->save('pages',$data);
 		redirect('new-pages/success');
 	}
 	
 	public function delete(){
 		
-		$this->lib_database->delete('a_pages',array('id'=>$_GET['id']));
+		$this->lib_database->delete('pages',array('id'=>$_GET['id']));
 		echo json_decode('1');
 		}
 
 	public function edit(){
-		$data = $this->lib_database->get('a_pages',NULL,array('id'=>$this->uri->segment(2)));
+		$data = $this->lib_database->get('pages',NULL,array('id'=>$this->uri->segment(2)));
 		foreach($data as $row){
 			$data = array(
 						'id' => $row->id,
@@ -52,7 +52,7 @@ class pages extends Admin_Controller {
 		$keywords = $this->input->post('keywords',TRUE);
 		$desc = $this->input->post('desc');
 		$data = array('title'=>$title,'enTitle'=>$enTitle, 'keywords'=>$keywords, 'discription'=>$desc);
-		$this->lib_database->save('a_pages',$data,array('id'=>$id));
+		$this->lib_database->save('pages',$data,array('id'=>$id));
 		redirect('new-pages/success');
 		}	
 

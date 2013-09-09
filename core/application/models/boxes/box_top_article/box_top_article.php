@@ -3,7 +3,7 @@ class box_top_article extends CI_Model
 {
 	public function initialize(){
 		$this->db->cache_off();
-		$articlevisit = $this->lib_database->limit('a_article',array('visit >='=>1),7,NULL,'visit','DESC');
+		$articlevisit = $this->lib_database->limit('article',array('visit >='=>1),7,NULL,'visit','DESC');
 		$return = '<div class="boxTitle">بهترین نوشته ها</div>';
 		$return .= '<ul class="UlLeftMenu">';
 		foreach($articlevisit as $row){

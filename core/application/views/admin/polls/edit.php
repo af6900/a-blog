@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../../../../../assets/admin/bootstrap/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="../../../../../assets/admin/bootstrap/css/bootstrap-theme.min.css"/>
 <script src="<?php assets('ajax/polls.js');?>" language="javascript" type="text/javascript"></script>
 <div class="container dir-rtl">
 	<div class="row">

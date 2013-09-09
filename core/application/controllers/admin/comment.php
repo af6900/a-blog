@@ -11,9 +11,9 @@ class comment extends Admin_Controller {
 	public function index(){
 		//$data['comment'] = $this->model_comment->join('a_article','id','id_article','id_comment','DESC');
 		$this->db->select('*');
-		$this->db->from('a_article');
+		$this->db->from('article');
 		$this->db->order_by('id', 'DESC');
-		$this->db->join('a_comment', "a_article.id = a_comment.id_article");
+		$this->db->join('comment', "article.id = comment.id_article");
 		$data['comment'] = $this->db->get()->result();
 		$this->out('comment','comment',$data);		
 		}

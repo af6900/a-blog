@@ -8,7 +8,7 @@ class friend extends Admin_Controller {
     }
 	public function index(){
 		$this->db->cache_delete('friend', 'index');
-		$data['friends'] = $this->lib_database->get('a_friends');
+		$data['friends'] = $this->lib_database->get('friends');
 		$this->out('friends','friends',$data);		
 		}
 		
@@ -16,11 +16,11 @@ class friend extends Admin_Controller {
 		$name   = $this->input->post('name',TRUE);
 		$link   = $this->input->post('link',TRUE);
 		$data = array('name'=>$name, 'link'=>$link);
-		$this->lib_database->save('a_friends',$data);
+		$this->lib_database->save('friends',$data);
 		redirect('friend');
 		}	
 	public function deleteFriende(){
-		$this->lib_database->delete('a_friends',array('id'=>$this->uri->segment(2)));
+		$this->lib_database->delete('friends',array('id'=>$this->uri->segment(2)));
 		redirect('friend');
 		}		
 }/* end { */

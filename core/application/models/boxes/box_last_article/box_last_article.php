@@ -4,7 +4,7 @@ class box_last_article extends CI_Model
 	public function initialize(){
 		$count = $this->model_boxes->configuration_kay('COUNT_LAST_ARTICLE');
 		$where = "archive ='0' and publish_up <= '".adate(4).date('His')."'and publish_down >= '".adate(4)."'";
-		$LastArticle = $this->lib_database->limit('a_article',$where,$count,NULL,'publish_up','DESC');
+		$LastArticle = $this->lib_database->limit('article',$where,$count,NULL,'publish_up','DESC');
 		$return = '<div class="boxTitle">آخرین مطالب</div>';
 		$return .= '<ul class="UlLeftMenu">';
 		foreach ($LastArticle as $row){

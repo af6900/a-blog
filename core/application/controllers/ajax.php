@@ -20,7 +20,7 @@ class Ajax extends CI_Controller {
     	$salavat = $item + $query;
 		$this->db->where('kay','COUNT_SALAVAT');
 		$up = array('value'=>$salavat);
-		$this->db->update('a_configuration',$up);
+		$this->db->update('configuration',$up);
 		$this->db->cache_delete('ajax', 'salavat');
 		echo $this->model_boxes->configuration_kay('COUNT_SALAVAT');
     }
@@ -66,7 +66,7 @@ class Ajax extends CI_Controller {
 		
 	public function comment(){
 		$articleId = $this->input->get('articleId',TRUE);
-		$getResult = $this->lib_database->get('a_article');
+		$getResult = $this->lib_database->get('article');
 		foreach($getResult as $row){
 			$id = $row->id;
 
@@ -77,7 +77,7 @@ class Ajax extends CI_Controller {
 						  'user_email'   =>$this->input->get('email',TRUE),
 						  'comment'      =>$this->input->get('text',TRUE) );
 		comment_send_admin($this->input->get('name',TRUE),$this->input->get('email',TRUE),$this->input->get('text',TRUE),$this->input->get('author',TRUE));			  
-				$result = $this->db->insert('a_comment',$data);
+				$result = $this->db->insert('comment',$data);
 				echo $result;
 			}
 			}			
@@ -97,11 +97,11 @@ class Ajax extends CI_Controller {
 	public function status(){
 		$text = $this->input->get('status',TRUE);
 		$data   = array('value'=>$text);
-		$this->lib_database->save('a_configuration',$data,array('kay'=>'STATUS_TEXT'));
+		$this->lib_database->save('configuration',$data,array('kay'=>'STATUS_TEXT'));
 		}			
 	public function pages(){
 		
-		$this->lib_database->delete('a_pages',array('id'=>$_GET['id']));
+		$this->lib_database->delete('pages',array('id'=>$_GET['id']));
 		echo json_decode('1');
 		}	
 	

@@ -4,7 +4,7 @@ class box_news extends MY_Model
 	public function initialize(){
 		$count = $this->model_boxes->configuration_kay('COUNT_LIST_NEWS');
 		$weher = array('publish_up <='=>adate(3),'publish_down >='=>adate(3)); 
-		$newsList = $this->lib_database->get('a_news',NULL,$weher,'id','DESC');
+		$newsList = $this->lib_database->get('news',NULL,$weher,'id','DESC');
 		$return = '<div class="boxTitle">لیست اخبار</div>';
 		$return .= '<ul class="UlLeftMenu">';
 		foreach ($newsList as $row){

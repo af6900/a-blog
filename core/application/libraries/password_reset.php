@@ -56,7 +56,7 @@ class CI_password_reset {
   public function send_pass_email($email, $pass) {
 	            $CI =& get_instance();
 				
-				$emailTemplate = $CI->lib_database->get('a_email_template',NULL,array('id'=>1));
+				$emailTemplate = $CI->lib_database->get('email_template',NULL,array('id'=>1));
 				foreach( $emailTemplate as $row ){
 					$template['tem'] = $row->template;
 					$template['title'] = $row->title;
@@ -90,7 +90,7 @@ class CI_password_reset {
 		
 	            $CI =& get_instance();
 				
-				$emailTemplate = $CI->lib_database->get('a_email_template',NULL,array('id'=>6));
+				$emailTemplate = $CI->lib_database->get('email_template',NULL,array('id'=>6));
 				foreach( $emailTemplate as $row ){
 					$template['tem'] = $row->template;
 					$template['title'] = $row->title;

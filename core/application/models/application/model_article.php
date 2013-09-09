@@ -1,7 +1,7 @@
 <?php
 class Model_Article extends MY_Model
 {
-		protected $_table_name = 'a_article';
+		protected $_table_name = 'article';
 		protected $_order_by = 'id';	
 		protected $_rules = array(
 		'title' => array(

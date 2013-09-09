@@ -3,9 +3,9 @@ class box_polls extends CI_Model
 {
 	public function initialize(){
 			
-		$get_poll = $this->lib_database->get('a_polls',NULL,NULL,'id_polls');
+		$get_poll = $this->lib_database->get('polls',NULL,NULL,'id_polls');
 		foreach($get_poll as $row){
-			$get_answer = $this->lib_database->get('a_polls_answer',NULL,array('id_poll'=>$row->id_polls),'id_answer');
+			$get_answer = $this->lib_database->get('polls_answer',NULL,array('id_poll'=>$row->id_polls),'id_answer');
 			 $return = '<div class="boxTitle">'.$row->polls_title.'</div>';
 			 				     
     		 $return .= '<input type="hidden" value="'.$_SERVER['REMOTE_ADDR'].'id="user_ip"/>';

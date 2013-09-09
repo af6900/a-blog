@@ -31,7 +31,7 @@ class communique extends Admin_Controller {
 			})
 		</script>
         <?php 
-		$communique = $this->lib_database->get('a_communique');
+		$communique = $this->lib_database->get('communique');
 
 			foreach($communique as $row){
 				  $return =  '<li class="list-group-item" id="'.$row->id.'">';
@@ -49,12 +49,12 @@ class communique extends Admin_Controller {
 					'startPublic' => $this->input->get('start',TRUE),
 					'endPublic' => $this->input->get('end',TRUE)
 					);
-		$this->lib_database->save('a_communique',$data);
+		$this->lib_database->save('communique',$data);
 		echo json_decode('1'); 
 	}
 	
 	public function delete(){
-		$this->lib_database->delete('a_communique',array('id'=>$this->input->get('id')));
+		$this->lib_database->delete('communique',array('id'=>$this->input->get('id')));
 	}	
 	
 }

@@ -32,7 +32,7 @@ class status extends Admin_Controller {
 		</script>
       <?php 
 	  		$count = $this->input->get('count',TRUE);
-	  		$status = $this->lib_database->limit('a_status',NULL,10,$count,'id','DESC');
+	  		$status = $this->lib_database->limit('status',NULL,10,$count,'id','DESC');
 			foreach($status as $row){
 				  $return =  '<li class="list-group-item" id="'.$row->id.'">';
 				  $return .= '<span class="pull-left" ><a href="javascript:void(null);" class="statusDel" data-del="'.$row->id.'"><span class="glyphicon glyphicon-trash"></span></a></span>';
@@ -48,12 +48,12 @@ class status extends Admin_Controller {
 					'startPublic' => $this->input->get('start',TRUE),
 					'endPublic' => $this->input->get('end',TRUE)
 					);
-		$this->lib_database->save('a_status',$data);
+		$this->lib_database->save('status',$data);
 		echo json_decode('1'); 
 	}
 	
 	public function delete(){
-		$this->lib_database->delete('a_status',array('id'=>$this->input->get('id')));
+		$this->lib_database->delete('status',array('id'=>$this->input->get('id')));
 		echo json_decode('1');
 		}	
 	

@@ -1,18 +1,18 @@
 <?php
 class model_admin_users extends MY_Model
 {
-	protected $_table_name = 'a_admin_user';
+	protected $_table_name = 'admin_user';
 	protected $_order_by = 'id';
 	protected $_rules = array(
 		'name' => array(
 			'field' => 'name', 
 			'label' => 'نام', 
-			'rules' => 'trim|required|xss_clean|is_unique[a_admin_user.name]'
+			'rules' => 'trim|required|xss_clean|is_unique[admin_user.name]'
 		),
 		'LoginName' => array(
 			'field' => 'LoginName', 
 			'label' => 'نام کاربری', 
-			'rules' => 'trim|required|xss_clean|is_unique[a_admin_user.LoginName]'
+			'rules' => 'trim|required|xss_clean|is_unique[admin_user.LoginName]'
 		), 
 		'LoginPass' => array(
 			'field' => 'LoginPass', 

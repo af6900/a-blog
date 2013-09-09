@@ -100,15 +100,15 @@ function apple_touch_icon($imageName = NULL){
 function status(){
 	    $CI =& get_instance();
 		$text = '';
-		$count = $CI->lib_database->count_all('a_status');
-		$result = $CI->lib_database->limit('a_status',array('date'=>adate(2)),1);
+		$count = $CI->lib_database->count_all('status');
+		$result = $CI->lib_database->limit('status',array('date'=>adate(2)),1);
 		foreach($result as $row){
 			$text = $row->text;
 			$id = $row->id;
 			}
 		if(isset($id)){
-			$pre = $CI->lib_database->save('a_status',array('date'=>adate(2)+$count-1),array('id <' => $id));
-			$next = $CI->lib_database->limit('a_status',array('id >'=>$id),1);
+			$pre = $CI->lib_database->save('status',array('date'=>adate(2)+$count-1),array('id <' => $id));
+			$next = $CI->lib_database->limit('status',array('id >'=>$id),1);
 			foreach( $next as $row ){
 			   $next_id = $row->id;
 				}
@@ -117,7 +117,7 @@ function status(){
 		
 
 	  if(isset($next_id)){
-		  $CI->lib_database->save('a_status',array('date'=>adate(2)+1),array('id'=>$next_id));
+		  $CI->lib_database->save('status',array('date'=>adate(2)+1),array('id'=>$next_id));
 		  }
 		
 		?>
@@ -144,10 +144,10 @@ function captcha(){
 			$CI =& get_instance();
 			$r = rand(111111,999999);
 			$captcha = rand(111111,$r);
-			$CI->lib_database->save('a_captcha',array('time'=>time(), 'captcha'=>$captcha)); 
+			$CI->lib_database->save('captcha',array('time'=>time(), 'captcha'=>$captcha)); 
 			
 			$expire = time()- 320;
-			$CI->lib_database->delete('a_captcha',array('time <'=>$expire));
+			$CI->lib_database->delete('captcha',array('time <'=>$expire));
 			
 		$vals = array(
 			'word' => $captcha,
@@ -267,7 +267,7 @@ function form($option){
 function communique()
 {
 	 $CI =& get_instance();
- 	    $communique = $CI->lib_database->get('a_communique',NULL,array('startPublic <='=> adate(3),'endPublic >='=> adate(3)));
+ 	    $communique = $CI->lib_database->get('communique',NULL,array('startPublic <='=> adate(3),'endPublic >='=> adate(3)));
 		foreach ($communique as $row){
 			echo '<div class="communique">';
 			 echo $row->text;

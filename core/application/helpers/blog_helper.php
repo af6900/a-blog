@@ -152,7 +152,7 @@ function news()
 {
 	 $CI =& get_instance();
 		$start = adate(3);
- 	    $new = $CI->lib_database->get('a_news',NULL,array('startDate <=' =>$start, 'endDate >='=> $start));
+ 	    $new = $CI->lib_database->get('news',NULL,array('startDate <=' =>$start, 'endDate >='=> $start));
 		foreach ($new as $row){
 			echo '<div class="new">';
 			 echo $row->description;

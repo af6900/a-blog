@@ -9,7 +9,7 @@ class news extends Admin_Controller {
     }
 	public function index(){
 		$this->db->cache_delete('admin-news-list', 'index');
-		$data['data'] = $this->lib_database->get('a_news');
+		$data['data'] = $this->lib_database->get('news');
 		$this->out('news','news',$data);	
 		}
 		
@@ -31,7 +31,7 @@ class news extends Admin_Controller {
 					  'startDate'  => $publish_up,
 					  'endDate'    =>$publish_down);
 					  
-		$result = $this->lib_database->save('a_news',$data);
+		$result = $this->lib_database->save('news',$data);
 		if($result){
 			redirect('admin-news/success');
 			} else {
@@ -42,19 +42,19 @@ class news extends Admin_Controller {
 		}
 	
 	public function news_list(){
-		$data['news'] = $this->lib_database->get('a_news');
+		$data['news'] = $this->lib_database->get('news');
 		$this->out('news','list',$data); 
 		}
 	
 	public function deleteNews(){
 		$id = $this->uri->segment(2);
-		$this->lib_database->delete('a_news',array('id'=>$id));
+		$this->lib_database->delete('news',array('id'=>$id));
 		redirect('admin-news');
 		}
 		
 	public function edit(){
 		$id = $this->uri->segment(2);
-		$result = $this->lib_database->get('a_news',NULL,array('id'=>$id));
+		$result = $this->lib_database->get('news',NULL,array('id'=>$id));
 		foreach ($result as $row){
 			$data['id']          = $row->id; 
 			$data['title']       = $row->title;
@@ -79,7 +79,7 @@ class news extends Admin_Controller {
 					  'startDate'  => $publish_up,
 					  'endDate'    =>$publish_down);
 		
-		$result = $this->lib_database->save('a_news',$data,array('id'=>$id));
+		$result = $this->lib_database->save('news',$data,array('id'=>$id));
 		if($result){
 			redirect('admin-news/success');
 			}else{

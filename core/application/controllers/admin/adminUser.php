@@ -96,13 +96,13 @@ class adminUser extends Admin_Controller {
 		
 		public function listUser(){
 			$this->db->cache_delete('admin-user-list', 'index');
-			$data['user'] = $this->lib_database->get('a_admin_user');
+			$data['user'] = $this->lib_database->get('admin_user');
 			$this->out('adminUser','list',$data);
 			}
 			
 		public function send_email(){
 			$data['id'] =  $this->uri->segment(2);
-			$email = $this->lib_database->get_filde('a_admin_user',array('id'=>$this->input->post('id')),'UserEmail');
+			$email = $this->lib_database->get_filde('admin_user',array('id'=>$this->input->post('id')),'UserEmail');
 			$title = $this->input->post('title',TRUE);
 			$msg = $this->input->post('text');
 			if($msg !=''){
@@ -116,7 +116,7 @@ class adminUser extends Admin_Controller {
 			$title = $this->input->post('title',TRUE);
 			$msg = $this->input->post('text');
 			if($msg != ''){
-				$for = $this->lib_database->get('a_admin_user');
+				$for = $this->lib_database->get('admin_user');
 				foreach($for as $row){
 					send_email($msg,$title,$row->UserEmail);
 					}

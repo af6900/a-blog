@@ -3,7 +3,7 @@ class model_boxes extends MY_Model{
 	
 	//model_box v 1 beta
 	
-	protected $_table_name = 'a_boxes';
+	protected $_table_name = 'boxes';
 	protected $_order_by = 'id';
 	
 	public function upload(){
@@ -77,13 +77,13 @@ class model_boxes extends MY_Model{
 		$configuration_install = $this->ModelBox->configuration_install();
 		
 		if($configuration_install != NULL){
-			$this->db->insert_batch('a_configuration',$configuration_install);
+			$this->db->insert_batch('configuration',$configuration_install);
 		}
 		
 		$model_install = $this->ModelBox->model_install();
 		if($model_install != NULL){
 			$data = array('name'=>$file['raw_name'],'title'=> $model_install);
-		    $this->db->insert('a_boxes',$data);
+		    $this->db->insert('boxes',$data);
 		}
 
 		
@@ -96,18 +96,18 @@ class model_boxes extends MY_Model{
 			$this->db->where('box_name',$box_name);
 			$this->db->where('kay',$row);
 			$data = array('value'=>$value);
-			$this->db->update('a_configuration',$data);
+			$this->db->update('configuration',$data);
 			}
 		}
 	
 	public function configuration_boxName($box_name){
 		$this->db->where('box_name',$box_name);
-		return $this->db->get('a_configuration')->result();
+		return $this->db->get('configuration')->result();
 		}	
 
 	public function configuration_kay($kay){
 		$this->db->where('kay',$kay);
-		$data = $this->db->get('a_configuration');
+		$data = $this->db->get('configuration');
 		foreach($data->result() as $row){
 			return $row->value;
 			}

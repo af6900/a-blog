@@ -14,12 +14,12 @@ class Site extends Frontend_Controller {
 		$data['page']    = $this->template->PageCount($total_rows ,'index' ,'' ,'2');
 		$count = $this->uri->segment(2);
 		$where = "archive ='0' and publish_up <= '".adate(4).date('His')."' and publish_down >= '".adate(4)."'";
-		$data['article'] = $this->lib_database->limit('a_article',$where,5,$count,'publish_up','DESC');
+		$data['article'] = $this->lib_database->limit('article',$where,5,$count,'publish_up','DESC');
 		$this->template->out($data);					
 	}
 	public function pages(){
 		
-		$page = $this->lib_database->get('a_pages',NULL,array('enTitle'=>$this->uri->segment(2)));
+		$page = $this->lib_database->get('pages',NULL,array('enTitle'=>$this->uri->segment(2)));
 		foreach($page as $row){
 			$data = array('enTitle'=>$row->enTitle,
 							'title'=>$row->title,

@@ -8,7 +8,7 @@ class Model_Search extends MY_Model
 			$this->db->like('title', $search, 'both');
 			$this->db->or_like('summary', $search, 'both');
 			$this->db->or_like('fulltext', $search, 'both');
-			return $this->db->get('a_article')->result();
+			return $this->db->get('article')->result();
 		}else{
 			return FALSE;
 			}

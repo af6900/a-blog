@@ -3,36 +3,36 @@ class box_visit extends CI_Model
 {
 	public function initialize(){
 		$this->db->cache_off();
-		$db_date = $this->lib_database->get_filde('a_visit',NULL,'date');
+		$db_date = $this->lib_database->get_filde('visit',NULL,'date');
 		if($db_date < date('Ymd')){
 				
-			$this->lib_database->save('a_visit',array('date'=>date('Ymd')),array('id'=>1));
-			$this->lib_database->save('a_visit',array('week'=>$this->lib_database->get_filde('a_visit',NULL,'dey')),array('id'=>1));
-			$this->lib_database->save('a_visit',array('dey'=>1),array('id'=>1));
-			$this->lib_database->empty_table('a_useronline');
+			$this->lib_database->save('visit',array('date'=>date('Ymd')),array('id'=>1));
+			$this->lib_database->save('visit',array('week'=>$this->lib_database->get_filde('visit',NULL,'dey')),array('id'=>1));
+			$this->lib_database->save('visit',array('dey'=>1),array('id'=>1));
+			$this->lib_database->empty_table('useronline');
 			
 			}
 		
 		/* user online */
-		$result = $this->lib_database->get('a_useronline','row',array('ip'=>$_SERVER['REMOTE_ADDR']),'ip');
+		$result = $this->lib_database->get('useronline','row',array('ip'=>$_SERVER['REMOTE_ADDR']),'ip');
 		if($result == FALSE ){
-			$this->lib_database->save('a_useronline',array('ip'=>$_SERVER['REMOTE_ADDR'],'time'=>date('Ymd')));
+			$this->lib_database->save('useronline',array('ip'=>$_SERVER['REMOTE_ADDR'],'time'=>date('Ymd')));
 			}
 		
 		
 		/* dey visit */	
-		$dey = 1 + $this->lib_database->get_filde('a_visit',NULL,'dey');
-		$this->lib_database->save('a_visit',array('dey'=>$dey),array('id'=>1));
+		$dey = 1 + $this->lib_database->get_filde('visit',NULL,'dey');
+		$this->lib_database->save('visit',array('dey'=>$dey),array('id'=>1));
 		/* total */
-		$total = 1 + $this->lib_database->get_filde('a_visit',NULL,'total');
-		$this->lib_database->save('a_visit',array('total'=>$total),array('id'=>1));
+		$total = 1 + $this->lib_database->get_filde('visit',NULL,'total');
+		$this->lib_database->save('visit',array('total'=>$total),array('id'=>1));
 		
 		$return = '<div class="boxTitle">آمار</div>';
 		$return .= '<ul class="UlLeftMenu">';
-		$return .= "<li class='LiRightMenu'>"."کاربر:".$this->lib_database->count_all('a_useronline')."</li>";
-		$return .= "<li class='LiRightMenu'>"."امروز:".$this->lib_database->get_filde('a_visit',NULL,'dey')."</li>";
-		$return .= "<li class='LiRightMenu'>"."دیروز:".$this->lib_database->get_filde('a_visit',NULL,'week')."</li>";
-		$return .= "<li class='LiRightMenu'>"."کل:".$this->lib_database->get_filde('a_visit',NULL,'total')."</li>";
+		$return .= "<li class='LiRightMenu'>"."کاربر:".$this->lib_database->count_all('useronline')."</li>";
+		$return .= "<li class='LiRightMenu'>"."امروز:".$this->lib_database->get_filde('visit',NULL,'dey')."</li>";
+		$return .= "<li class='LiRightMenu'>"."دیروز:".$this->lib_database->get_filde('visit',NULL,'week')."</li>";
+		$return .= "<li class='LiRightMenu'>"."کل:".$this->lib_database->get_filde('visit',NULL,'total')."</li>";
 		$return .= "<li class='LiRightMenu'>"."آی پی:".$_SERVER['REMOTE_ADDR']."</li>";
 		$return .= '</ul>';
 		return $return;
