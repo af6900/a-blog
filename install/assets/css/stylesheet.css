@@ -1,3 +1,9 @@
+.dir-rtl{
+	direction:rtl !important;
+	}
+.dir-ltr{
+	direction:ltr !important;
+	}	
 body {
     font-size: 13px;
 
@@ -96,7 +102,7 @@ form label, .form-horizontal .control-label {
 .content {
     border: 1px solid #dddddd;
     border-radius: 4px 4px 4px 4px;
-    box-shadow: 0 0 3px #DDDDDD;
+
     display: block;
      padding: 0 20px 20px 20px;
 }
@@ -135,14 +141,14 @@ form label, .form-horizontal .control-label {
     display: none;
     float: left;
     margin-top: 10px;
-    width: 218px;
+    width: 250px;
 }
 
 #mBoxContents {
     background: none repeat scroll 0 0 #FFEDD1;
     border: 1px solid #F0A42A;
     padding: 10px;
-    width: 198px;
+    width: 250px;
 }
 
 div.large {

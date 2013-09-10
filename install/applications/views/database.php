@@ -1,8 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-    $db_table_types = array('mysql'=> 'MySQL - MyISAM (Default)',
-                            'mysqli'=> 'MySQLi (PHP 5 / MySQL 4.1)');
-  
+ 
     $messages = array(
         'connection_test' => array('icon' => 'progress.gif', 'message' => lang('rpc_database_connection_test')),
         'database_connection_error' => array('icon' => 'failed.gif', 'message' => lang('rpc_database_connection_error')),
@@ -11,7 +8,7 @@
         'database_import_error' => array('icon' => 'failed.gif', 'message' => lang('rpc_database_import_error')));
 ?>
 <div class="container clearfix">
-    <div class="row-fluid">
+    <div class="row">
         	<div class="col-md-3 pull-right">
             <div class="list-group text-right">
                 <a class="list-group-item <?php echo ($step == 1) ? 'active' : ''; ?>" href="javascript:void(0);" title="<?php echo lang('nav_menu_step_1_text'); ?>"><i class="glyphicon glyphicon-chevron-left pull-left"></i> <?php echo lang('nav_menu_step_1_text'); ?></a>
@@ -31,60 +28,60 @@
           
           	<p><?php echo lang('text_database_server_setup'); ?></p>
             
-            <form name="install" id="installForm" action="<?php echo site_url('index/index/db_create'); ?>" method="post" onsubmit="prepareDB(); return false;" class="form-horizontal">
-                <div class="info">
-                    <div class="control-group">
-                        <label class="control-label" for="DB_SERVER"><?php echo lang('param_database_server'); ?>:</label>
-                        <div class="controls">
-                        	<input type="text" id="DB_SERVER" name="DB_SERVER" />
-                        </div>
-                        <div class="description"><?php echo lang('param_database_server_description'); ?></div>
-                    </div>
-                    
-                    <div class="control-group">
+            <form name="install" id="installForm" action="<?php echo site_url('index/index/db_create'); ?>" method="post" onsubmit="prepareDB(); return false;">
+            <div class="info dir-rtl">
+            	<div class="col-md-6 pull-right">
+            		 <div class="form-group">
+                         <label class="control-label" for="DB_SERVER"><?php echo lang('param_database_server'); ?>:</label>
+                         <input type="text" class="form-control" id="DB_SERVER" name="DB_SERVER" />
+                         <p class="help-block"><?php echo lang('param_database_server_description'); ?></p>
+                      </div> 
+                      
+                	 <div class="form-group">
                         <label class="control-label" for="DB_SERVER_USERNAME"><?php echo lang('param_database_username'); ?>:</label>
-                        <div class="controls">
-                        	<input type="text" id="DB_SERVER_USERNAME" name="DB_SERVER_USERNAME" />
-                        </div>
-                        <div class="description"><?php echo lang('param_database_username_description'); ?></div>
-                    </div>
-                    
-                    <div class="control-group">
-                        <label class="control-label" for="DB_SERVER_PASSWORD"><?php echo lang('param_database_password'); ?>:</label>
-                        <div class="controls">
-                        	<input type="password" id="DB_SERVER_PASSWORD" name="DB_SERVER_PASSWORD" />
-                        </div>
-                        <div class="description"><?php echo lang('param_database_password_description'); ?></div>
-                    </div>
-                    
-                    <div class="control-group">
+                        <input type="text" class="form-control" id="DB_SERVER_USERNAME" name="DB_SERVER_USERNAME" />
+                         <p class="help-block"><?php echo lang('param_database_username_description'); ?></p>
+                      </div> 
+                      
+                	 <div class="form-group">
+                         <label class="control-label" for="DB_SERVER_PASSWORD"><?php echo lang('param_database_password'); ?>:</label>
+                         <input type="password" class="form-control" id="DB_SERVER_PASSWORD" name="DB_SERVER_PASSWORD" />
+                         <p class="help-block"><?php echo lang('param_database_password_description'); ?></p>
+                      </div> 
+                  </div> 
+                  
+                  <div class="col-md-6">               
+                     <div class="form-group">
                         <label class="control-label" for="DB_DATABASE"><?php echo lang('param_database_name'); ?>:</label>
-                        <div class="controls">
-                        	<input type="text" id="DB_DATABASE" name="DB_DATABASE" />
-                        </div>
-                        <div class="description"><?php echo lang('param_database_name_description'); ?></div>
-                    </div>
-                    
-                    <div class="control-group">
+                        <input type="text" class="form-control" id="DB_DATABASE" name="DB_DATABASE" />
+                        <p class="help-block"><?php echo lang('param_database_name_description'); ?></p>
+                      </div> 
+                      
+                     <div class="form-group">
                         <label class="control-label" for="DB_DATABASE_CLASS"><?php echo lang('param_database_type'); ?>:</label>
-                        <div class="controls">
-                        	<?php echo form_dropdown('DB_DATABASE_CLASS', $db_table_types); ?>
-                        </div>
-                        <div class="description"><?php echo lang('param_database_type_description'); ?></div>
-                    </div>
-                    
-                    <div class="control-group">
+                     
+                        <select name="DB_DATABASE_CLASS" class="form-control">
+                        	<option value="mysql">MySQL - MyISAM (Default)</option>
+                            <option value="mysqli">MySQLi (PHP 5 / MySQL 4.1)</option>
+                        </select>
+                        <p class="help-block"><?php echo lang('param_database_type_description'); ?></p>
+                      </div> 
+                      
+                     <div class="form-group">
                         <label class="control-label" for="DB_TABLE_PREFIX"><?php echo lang('param_database_prefix'); ?>:</label>
-                        <div class="controls">
-                        	<input type="text" id="DB_TABLE_PREFIX" name="DB_TABLE_PREFIX" <?php if(!empty($DB_TABLE_PREFIX)){echo "value='$DB_TABLE_PREFIX'";}else{echo "value='toc_'";} ?> />
-                        </div>
-                        <div class="description"><?php echo lang('param_database_prefix_description'); ?></div>
-                    </div>
-                </div>
+                        <input type="text" class="form-control dir-ltr" id="DB_TABLE_PREFIX" name="DB_TABLE_PREFIX" <?php if(!empty($DB_TABLE_PREFIX)){echo "value='$DB_TABLE_PREFIX'";}else{echo "value='toc_'";} ?> />
+                        <p class="help-block"><?php echo lang('param_database_prefix_description'); ?></p>
+                      </div>
+                  </div>
+                  
+                  <div class="clearfix"></div>
+            </div>
+
+
                 
-                <div class="control-group">
-                    <div class="controls pull-right">
-                    	<a href="<?php echo site_url(); ?>" class="btn btn-info" href="<?php echo site_url(); ?>"><i class="icon-remove icon-white"></i> &nbsp;<?php echo lang('image_button_cancel'); ?></a>
+                <div class="control-group ">
+                    <div class="controls pull-left">
+                    	<a href="<?php echo site_url(); ?>" class="btn btn-info" href="<?php echo site_url(); ?>"><i class="glyphicon glyphicon-remove "></i> &nbsp;<?php echo lang('image_button_cancel'); ?></a>
                         <button id="continue-button" type="button" class="btn btn-info"><i class="glyphicon glyphicon-ok"></i> &nbsp;<?php echo lang('image_button_continue'); ?></button>
                     </div>
                 </div>
@@ -131,7 +128,7 @@
             $this.addClass('disabled');
             $.ajax({
                 type: 'post',
-                url: '<?php echo site_url('database/connect_db') ?>',
+                url: '<?php echo site_url('index.php/database/connect_db') ?>',
                 data: $('input[name=DB_SERVER], input[name=DB_SERVER_USERNAME], input[name=DB_SERVER_PASSWORD], input[name=DB_DATABASE], select[name=DB_DATABASE_CLASS], input[name=DB_TABLE_PREFIX]'),
                 dataType: 'json',
                 success: function(result) {
@@ -148,7 +145,7 @@
                         
                         $.ajax({
                             type: 'post',
-                            url: '<?php echo site_url('database/import_sql') ?>',
+                            url: '<?php echo site_url('index.php/database/import_sql') ?>',
                             data: $('input[name=DB_SERVER], input[name=DB_SERVER_USERNAME], input[name=DB_SERVER_PASSWORD], input[name=DB_DATABASE], select[name=DB_DATABASE_CLASS], input[name=DB_TABLE_PREFIX]'),
                             dataType: 'json',
                             error: function() {
@@ -163,7 +160,7 @@
                                     display_message('database_imported');
 
                                     setTimeout(function() {
-                                        window.location = '<?php echo site_url('index/index/setting'); ?>';
+                                        window.location = '<?php echo site_url('index.php/index/index/setting'); ?>';
                                     }, 3000);
                                 }
                             }

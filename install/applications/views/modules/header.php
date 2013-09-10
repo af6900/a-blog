@@ -22,12 +22,10 @@
 <div id="header" class="text-right">
     <div class="container">
     	<div class="row">
-        	<div class="col-md-4 text-left">
-    			<a href="index.php"><img src="<?php echo site_url('assets/img/logo.png'); ?>" border="0" title="TomatoCart, Open Source Shopping Cart Solutions" style="margin: 10px 10px 0px 10px;" /></a>
-        	</div>
+        	
         	<div class="col-md-8">
             	<div class="row clearfix">
-                    <ul class="languages pull-right">
+                    <ul class="languages pull-left">
                         <li><b><?php echo lang('title_language'); ?></b></li>
                         <?php
                             foreach (get_languages() as $language) :
@@ -41,9 +39,13 @@
                         ?>
                     </ul>
             	</div>
-        		<div class="links pull-right">
+        		<div class="links pull-left">
                 	<a href="http://www.a-blog.ir" target="_blank"><?php echo lang('head_tomatocart_support_title'); ?></a>
             	</div>
+        	</div>
+            
+            <div class="col-md-4 text-center">
+    			<a href="index.php"><img src="<?php echo site_url('assets/img/logo.png'); ?>" border="0" title="ablog, Open Source Shopping Cart Solutions" style="margin: 10px 10px 0px 10px;" /></a>
         	</div>
         </div>
     </div>
