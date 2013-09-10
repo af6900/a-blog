@@ -1,5 +1,5 @@
-head_tomatocart_support_title = سایت پشتیبانی آ بلاگ
-head_tomatocart_support_forum_title = انجمن پشتیبانی آبلاگ 
+head_tomatocart_support_title = سایت پشتیبانی ابلاگ
+head_tomatocart_support_forum_title = انجمن پشتیبانی ابلاگ 
 head_oscommerce_support_title = پشتیبانی
 
 image_button_continue = ادامه
@@ -26,4 +26,4 @@ msg_change_db_name = نام پایگاه داده را تغییر دهید
 msg_create_db_success =پایگاه داده ایجاد شده است، روی ادامه کلیک کنید.
 db_exist = پایگاه داده وجود داشته باشد، چه رها کردن تمام داده ها و بازسازی پایگاه داده؟?
 
-foot_copy_text = Copyright &copy; 2012 <a href="http://www.a-blog.ir" target="_blank">سیستم مدیریت محتوای آبلاگ</a><br />ablog provides no warranty and is redistributable under the <a href="http://www.fsf.org/licenses/gpl.txt" target="_blank">GNU General Public License</a><hr />قدرت یافته <a href="http://www.a-blog.ir" target="_blank">آ بلاگ</a>
+foot_copy_text = Copyright &copy; 2012 <a href="http://www.a-blog.ir" target="_blank">سیستم مدیریت محتوای آبلاگ</a><br />ablog provides no warranty and is redistributable under the <a href="http://www.fsf.org/licenses/gpl.txt" target="_blank">GNU General Public License</a><hr />قدرت یافته <a href="http://www.a-blog.ir" target="_blank">ا بلاگ</a>

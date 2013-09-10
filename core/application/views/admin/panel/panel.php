@@ -13,10 +13,10 @@
       	<div class="col-xs-12 col-sm-12 col-md-12">
             <div class="panel panel-primary">
               <div class="panel-body">
-                 <?php if($UserName['name'] != ''):?>
+                 <?php if($UserName['avatar'] != ''):?>
                     <img width="100" src="<?php echo site_url('upload/avatar/'.$UserName['avatar']);?>" class="img-thumbnail pull-left">
                  <?php else: ?>
-                   <img src="<?php echo site_url('assets/admin/img/avatar.jpg')?>" width="100" class="img-thumbnail">
+                   <img src="<?php echo site_url('assets/admin/img/avatar.jpg')?>" width="100" class="img-thumbnail pull-left">
                   <?php endif ?>
                      <ul class="list-unstyled">
                      	<li><span><?php echo $UserName['name']?></span> : <i class="glyphicon glyphicon-user"></i></li>

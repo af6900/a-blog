@@ -70,8 +70,8 @@ INSERT INTO `a_notes` (`id`, `text`) VALUES (1, ' رفع مشکل کش و آما
 
 INSERT INTO `a_polls` (`id_polls`, `polls_title`, `active`) VALUES (2, 'تست', 1);
 
-INSERT INTO `a_polls`_answer (`id_answer`, `id_poll`, `answer_title`) VALUES (3, 2, 'سوال1');
-INSERT INTO `a_polls`_answer (`id_answer`, `id_poll`, `answer_title`) VALUES (4, 2, 'سوال 2');
+INSERT INTO `a_polls_answer` (`id_answer`, `id_poll`, `answer_title`) VALUES (3, 2, 'سوال1');
+INSERT INTO `a_polls_answer` (`id_answer`, `id_poll`, `answer_title`) VALUES (4, 2, 'سوال 2');
 
 INSERT INTO `a_status` (`id`, `text`, `startPublic`, `endPublic`, `date`) VALUES (1, 'سخن روز', '01/06/1392', '13/06/1392', '13920610');
 
@@ -80,6 +80,6 @@ INSERT INTO `a_templates` (`id`, `name`, `active`) VALUES (2, 'newBlog', '0');
 
 INSERT INTO `a_user` (`id`, `fristName`, `lastName`, `email`, `password`, `avatar`) VALUES (1, 'افشین', 'نژادشیخ', 'afshin@a-vitrin.ir', '4a2fb307b07978fc415381fd3d6cbb1a1a7b7ef9', '0f212798601ce699aaa6187fcd745ff8.png1');
 
-INSERT INTO `a_user`online (`ip`, `time`) VALUES ('::1', 20130908);
+INSERT INTO `a_useronline` (`ip`, `time`) VALUES ('::1', 20130908);
 
 INSERT INTO `a_web_config` (`id`, `Web_Title`, `Admin_Email`, `Keywords`, `Description`, `WebOff`, `OffDescription`, `login`, `email`, `sms`, `cache`, `clear_cache`) VALUES (1, 'نوشته های یک مبتدی', 'a@a.com', 'کلمات,کلیدی', 'تست', 1, '                           سایت به منظور به روزرسانی تا اطلاع ثانوی غیرفعال می باشد، لطفا بعدا مراجعه فرمایید.\r\nمدیر سایت                           ', 0, 0, 0, 0, 1378732413);

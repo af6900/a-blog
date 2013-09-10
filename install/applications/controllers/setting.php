@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Setting extends TOC_Controller
+class Setting extends A_Controller
 {
     /**
      * Constructor
@@ -23,10 +23,14 @@ class Setting extends TOC_Controller
         //store settings
 		
         $store_name = trim(urldecode($this->input->post('CFG_STORE_NAME')));
+		$weblog_keyword = trim(urldecode($this->input->post('HTTP_WWW_ADDRESS')));  
+
+
         $store_owner_name = trim(urldecode($this->input->post('CFG_STORE_OWNER_NAME')));
         $email = trim(urldecode($this->input->post('CFG_STORE_OWNER_EMAIL_ADDRESS')));
         $username = trim(urldecode($this->input->post('CFG_ADMINISTRATOR_USERNAME')));
         $password = trim(urldecode($this->input->post('CFG_ADMINISTRATOR_PASSWORD')));
+		
         $db_config = $this->session->userdata('db_config');
 
         //connect to database
@@ -35,14 +39,11 @@ class Setting extends TOC_Controller
         //load settings model
         $this->load->model('settings_model');
 		$this->load->model('administrators_model');
-		$this->administrators_model->create($username,$password,$email);
+		$this->administrators_model->create($store_owner_name,$username,$password,$email);
 		
 		
 		if($this->import_sample_sql()){
-			$this->settings_model->save_setting('STORE_NAME', $store_name);
-			$this->settings_model->save_setting('STORE_OWNER', $store_owner_name);
-			$this->settings_model->save_setting('STORE_OWNER_EMAIL_ADDRESS', $email);
-			$this->settings_model->save_setting('EMAIL_FROM', '"' . $store_owner_name . '" <' . $email . '>');
+			$this->settings_model->save_setting($store_name, $weblog_keyword, $email);
 		}
       
         //write database configuration file

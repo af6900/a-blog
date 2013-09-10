@@ -22,10 +22,10 @@ class Administrators_Model extends CI_Model
      * @param $email
      * @return boolean
      */
-    public function create($username, $password, $email)
+    public function create($store_owner_name,$username, $password, $email)
     {
         //insert into admin table
-        $result = $this->db->insert('admin_user', array('LoginName' => $username, 'LoginPass' => encrypt_string($password), 'UserEmail' => $email));
+        $result = $this->db->insert('admin_user', array('name'=>$store_owner_name,'LoginName' => $username, 'LoginPass' => encrypt_string($password), 'UserEmail' => $email));
 
     }
 }

@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<div id="header">
+<div id="header" class="text-right">
     <div class="container">
     	<div class="row">
         	<div class="span4">

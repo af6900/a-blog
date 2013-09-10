@@ -5,16 +5,21 @@ class login extends CI_Controller {
    public function __construct()
     {
         parent::__construct();
+		$this->db->cache_delete('login', 'index');
+		$this->db->cache_delete('validate_credentials', 'index');
+	    $this->db->cache_delete('validate_code', 'index');
     }
 	
 	public function index(){
-		$this->db->cache_delete('login', 'index');
+		
+		$this->db->cache_off();
 		$this->ip_banned->banned();
 		$this->load->view('admin/Login/login'); 
 		}
 		
 	public function validate_credentials(){
-		$this->db->cache_delete('validate_credentials', 'index');
+		
+		$this->db->cache_off();
 		$userName = htmlspecialchars(mysql_real_escape_string($this->input->get('name',TRUE)),ENT_QUOTES);
 		$pass     = htmlspecialchars(mysql_real_escape_string($this->input->get('pass',TRUE)),ENT_QUOTES);
 		$query = array('LoginName'=>$userName,'LoginPass'=>trim($this->ablog->a_hash($pass)));
@@ -65,7 +70,8 @@ class login extends CI_Controller {
 		}
 		
 	public function validate_code(){
-		 
+
+		 $this->db->cache_off();
 		 $input_code = $this->input->post('validate_code',TRUE);
 		if($input_code !=""){
 			$user_Name =  $this->model_admin_users->get_one(array('validateCode'=>$this->ablog->a_hash($input_code)),'LoginName');
