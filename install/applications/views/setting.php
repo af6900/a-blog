@@ -1,14 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
     //get www location
-    $www_location = 'http://' . $_SERVER['HTTP_HOST'];
-    
-    if (isset($_SERVER['REQUEST_URI']) && (empty($_SERVER['REQUEST_URI']) === false)) {
-        $www_location .= $_SERVER['REQUEST_URI'];
-    } else {
-        $www_location .= $_SERVER['SCRIPT_FILENAME'];
-    }
-    
-    $www_location = substr($www_location, 0, strpos($www_location, 'install'));
+//    $www_location = 'http://' . $_SERVER['HTTP_HOST'];
+//    
+//    if (isset($_SERVER['REQUEST_URI']) && (empty($_SERVER['REQUEST_URI']) === false)) {
+//        $www_location .= $_SERVER['REQUEST_URI'];
+//    } else {
+//        $www_location .= $_SERVER['SCRIPT_FILENAME'];
+//    }
+//    
+//    $www_location = substr($www_location, 0, strpos($www_location, 'install'));
   
     //messages
     $messages = array(

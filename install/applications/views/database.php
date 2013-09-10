@@ -1,19 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * TomatoCart Open Source Shopping Cart Solution
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License v3 (2007)
- * as published by the Free Software Foundation.
- *
- * @package		TomatoCart
- * @author		TomatoCart Dev Team
- * @copyright	Copyright (c) 2009 - 2012, TomatoCart. All rights reserved.
- * @license		http://www.gnu.org/licenses/gpl.html
- * @link		http://tomatocart.com
- * @since		Version 2.0
- * @filesource
- */
 
     $db_table_types = array('mysql'=> 'MySQL - MyISAM (Default)',
                             'mysqli'=> 'MySQLi (PHP 5 / MySQL 4.1)');
@@ -27,20 +12,21 @@
 ?>
 <div class="container clearfix">
     <div class="row-fluid">
-    	<div class="span3">
-            <ul class="nav nav-list">
-                <li class="<?php echo ($step == 1) ? 'active' : ''; ?>"><a href="javascript:void(0);" title="<?php echo lang('nav_menu_step_1_text'); ?>"><i class="icon-chevron-right"></i> <?php echo lang('nav_menu_step_1_text'); ?></a></li>
-                <li class="<?php echo ($step == 2) ? 'active' : ''; ?>"><a href="javascript:void(0);" title="<?php echo lang('nav_menu_step_2_text'); ?>"><i class="icon-chevron-right"></i> <?php echo lang('nav_menu_step_2_text'); ?></a></li>
-                <li class="<?php echo ($step == 3) ? 'active' : ''; ?>"><a href="javascript:void(0);" title="<?php echo lang('nav_menu_step_3_text'); ?>"><i class="icon-chevron-right"></i> <?php echo lang('nav_menu_step_3_text'); ?></a></li>
-                <li class="<?php echo ($step == 4) ? 'active' : ''; ?>"><a href="javascript:void(0);" title="<?php echo lang('nav_menu_step_4_text'); ?>"><i class="icon-chevron-right"></i> <?php echo lang('nav_menu_step_4_text'); ?></a></li>
-                <li class="<?php echo ($step == 5) ? 'active' : ''; ?>"><a href="javascript:void(0);" title="<?php echo lang('nav_menu_step_5_text'); ?>"><i class="icon-chevron-right"></i> <?php echo lang('nav_menu_step_5_text'); ?></a></li>
-			</ul>
-      	  	<div id="mBox"><div id="mBoxContents"></div></div>  
+        	<div class="col-md-3 pull-right">
+            <div class="list-group text-right">
+                <a class="list-group-item <?php echo ($step == 1) ? 'active' : ''; ?>" href="javascript:void(0);" title="<?php echo lang('nav_menu_step_1_text'); ?>"><i class="glyphicon glyphicon-chevron-left pull-left"></i> <?php echo lang('nav_menu_step_1_text'); ?></a>
+                <a class="list-group-item <?php echo ($step == 2) ? 'active' : ''; ?>" href="javascript:void(0);" title="<?php echo lang('nav_menu_step_2_text'); ?>"><i class="glyphicon glyphicon-chevron-left pull-left"></i> <?php echo lang('nav_menu_step_2_text'); ?></a>
+                <a class="list-group-item <?php echo ($step == 3) ? 'active' : ''; ?>" href="javascript:void(0);" title="<?php echo lang('nav_menu_step_3_text'); ?>"><i class="glyphicon glyphicon-chevron-left pull-left"></i> <?php echo lang('nav_menu_step_3_text'); ?></a>
+                <a class="list-group-item <?php echo ($step == 4) ? 'active' : ''; ?>" href="javascript:void(0);" title="<?php echo lang('nav_menu_step_4_text'); ?>"><i class="glyphicon glyphicon-chevron-left pull-left"></i> <?php echo lang('nav_menu_step_4_text'); ?></a>
+                <a class="list-group-item <?php echo ($step == 5) ? 'active' : ''; ?>" href="javascript:void(0);" title="<?php echo lang('nav_menu_step_5_text'); ?>"><i class="glyphicon glyphicon-chevron-left pull-left"></i> <?php echo lang('nav_menu_step_5_text'); ?></a>
+            </div>
+            <div id="mBox"><div id="mBoxContents"></div></div>  
     
             <div id="mainBlock">
             </div>
     	</div>
-    	<div class="span9 content">
+        
+    	<div class="col-md-9 content text-right">
           	<h1><?php echo lang('page_title_database_server_setup'); ?></h1>
           
           	<p><?php echo lang('text_database_server_setup'); ?></p>
@@ -99,7 +85,7 @@
                 <div class="control-group">
                     <div class="controls pull-right">
                     	<a href="<?php echo site_url(); ?>" class="btn btn-info" href="<?php echo site_url(); ?>"><i class="icon-remove icon-white"></i> &nbsp;<?php echo lang('image_button_cancel'); ?></a>
-                        <button id="continue-button" type="button" class="btn btn-info"><i class="icon-ok icon-white"></i> &nbsp;<?php echo lang('image_button_continue'); ?></button>
+                        <button id="continue-button" type="button" class="btn btn-info"><i class="glyphicon glyphicon-ok"></i> &nbsp;<?php echo lang('image_button_continue'); ?></button>
                     </div>
                 </div>
             </form>

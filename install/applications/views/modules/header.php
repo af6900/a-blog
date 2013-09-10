@@ -1,6 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,19 +13,19 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/css/stylesheet.css">
-    <script src="<?php echo base_url()?>assets/js/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo site_url('assets/css/stylesheet.css');?>">
+    <script src="<?php echo site_url('assets/js/jquery-1.8.2.min.js')?>" type="text/javascript"></script>
 </head>
 <body>
 
 <div id="header" class="text-right">
     <div class="container">
     	<div class="row">
-        	<div class="span4">
-    			<a href="index.php"><img src="<?php echo base_url(); ?>assets/img/logo.png" border="0" title="TomatoCart, Open Source Shopping Cart Solutions" style="margin: 10px 10px 0px 10px;" /></a>
+        	<div class="col-md-4 text-left">
+    			<a href="index.php"><img src="<?php echo site_url('assets/img/logo.png'); ?>" border="0" title="TomatoCart, Open Source Shopping Cart Solutions" style="margin: 10px 10px 0px 10px;" /></a>
         	</div>
-        	<div class="span8">
+        	<div class="col-md-8">
             	<div class="row clearfix">
                     <ul class="languages pull-right">
                         <li><b><?php echo lang('title_language'); ?></b></li>

@@ -85,77 +85,7 @@ class Setting extends A_Controller
         return FALSE;
     }
 
-    /**
-     * Write configuration file
-     *
-     * @param string $http_server
-     * @param string $http_path
-     * @param array $http_url
-     * @return boolean
-     */
-    private function write_config_file($http_server, $http_path, $http_url) {
-        $file = file_get_contents('../local/config/config.php');
-        $lines = explode("\n", $file);
 
-        $output = array();
-        foreach ($lines as $line) {
-            //config -- base url
-            if (strpos($line, '$config[\'base_url\']') === 0) {
-                $output[] = '$config[\'base_url\']	= \'' . $http_server . $http_path . '\';';
-            }
-            //config -- cookie domain
-            else if (strpos($line, '$config[\'cookie_domain\']') === 0) {
-                $output[] = '$config[\'cookie_domain\']	= \'' . $http_url['host'] . '\';';
-            }
-            //config -- cookie path
-            else if (strpos($line, '$config[\'cookie_path\']') === 0) {
-                $output[] = '$config[\'cookie_path\']		= \'' . $http_path . '\';';
-            }else {
-                $output[] = $line;
-            }
-        }
-
-        //write configuration file
-        $fp = @fopen('../local/config/config.php', 'w');
-        @fputs($fp, implode("\n", $output));
-        fclose($fp);
-    }
-
-    /**
-     * Write configuration file
-     *
-     * @param string $http_server
-     * @param string $http_path
-     * @param array $http_url
-     * @return boolean
-     */
-    private function write_admin_config_file($http_server, $http_path, $http_url) {
-        $file = file_get_contents('../admin/local/config/config.php');
-        $lines = explode("\n", $file);
-
-        $output = array();
-        foreach ($lines as $line) {
-            //config -- base url
-            if (strpos($line, '$config[\'base_url\']') === 0) {
-                $output[] = '$config[\'base_url\']	= \'' . $http_server . $http_path . 'admin/\';';
-            }
-            //config -- cookie domain
-            else if (strpos($line, '$config[\'cookie_domain\']') === 0) {
-                $output[] = '$config[\'cookie_domain\']	= \'' . $http_url['host'] . '\';';
-            }
-            //config -- cookie path
-            else if (strpos($line, '$config[\'cookie_path\']') === 0) {
-                $output[] = '$config[\'cookie_path\']		= \'' . $http_path . 'admin/\';';
-            }else {
-                $output[] = $line;
-            }
-        }
-
-        //write configuration file
-        $fp = @fopen('../admin/local/config/config.php', 'w');
-        @fputs($fp, implode("\n", $output));
-        fclose($fp);
-    }
 
     /**
      * Write database config file

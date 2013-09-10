@@ -1,30 +1,14 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-/**
- * TomatoCart Open Source Shopping Cart Solution
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License v3 (2007)
- * as published by the Free Software Foundation.
- *
- * @package		TomatoCart
- * @author		TomatoCart Dev Team
- * @copyright	Copyright (c) 2009 - 2012, TomatoCart. All rights reserved.
- * @license		http://www.gnu.org/licenses/gpl.html
- * @link		http://tomatocart.com
- * @since		Version 2.0
- * @filesource
- */
 
-    //get www location
-    $www_location = 'http://' . $_SERVER['HTTP_HOST'];
-    
-    if (isset($_SERVER['REQUEST_URI']) && (empty($_SERVER['REQUEST_URI']) === false)) {
-        $www_location .= $_SERVER['REQUEST_URI'];
-    } else {
-        $www_location .= $_SERVER['SCRIPT_FILENAME'];
-    }
-    
-    $www_location = substr($www_location, 0, strpos($www_location, 'install'));
+//    $www_location = 'http://' . $_SERVER['HTTP_HOST'];
+//    
+//    if (isset($_SERVER['REQUEST_URI']) && (empty($_SERVER['REQUEST_URI']) === false)) {
+//        $www_location .= $_SERVER['REQUEST_URI'];
+//    } else {
+//        $www_location .= $_SERVER['SCRIPT_FILENAME'];
+//    }
+//    
+//    $www_location = substr($www_location, 0, strpos($www_location, 'install'));
 ?>
 <div class="container clearfix">
     <div class="row-fluid">

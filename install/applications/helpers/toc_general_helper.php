@@ -89,7 +89,7 @@ if( ! function_exists('get_language_flag'))
     {
         $flag = strtolower(substr($code, 3));
 
-        return store_url() . '/images/worldflags/' . $flag . '.png';
+        return store_url() . '/assets/images/worldflags/' . $flag . '.png';
     }
 }
 

@@ -98,8 +98,7 @@ form label, .form-horizontal .control-label {
     border-radius: 4px 4px 4px 4px;
     box-shadow: 0 0 3px #DDDDDD;
     display: block;
-    width: 600px;
-    padding: 0 20px 20px 20px;
+     padding: 0 20px 20px 20px;
 }
 
 .license {

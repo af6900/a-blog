@@ -570,7 +570,7 @@ class A_Lang extends CI_Lang
             $height = 10;
         }
 
-        return image('../images/worldflags/' . $imagecode . '.png', $this->languages[$code]['name'], $width, $height, $parameters);
+        return image('../assets/images/worldflags/' . $imagecode . '.png', $this->languages[$code]['name'], $width, $height, $parameters);
     }
 
     // --------------------------------------------------------------------
