@@ -6,12 +6,12 @@ class login extends CI_Controller {
     {
         parent::__construct();
 		
-		$this->db->cache_off();
+		
 		$this->db->cache_delete('admin_logout','index');
 		$this->db->cache_delete('login', 'index');
 		$this->db->cache_delete('validate_credentials', 'index');
 	    $this->db->cache_delete('validate_code', 'index');
-		
+		$this->db->cache_off();
     }
 	
 	public function index(){
@@ -21,8 +21,7 @@ class login extends CI_Controller {
 		}
 		
 	public function validate_credentials(){
-		
-		
+		$this->db->cache_delete('validate_credentials', 'index');
 		$userName = htmlspecialchars(mysql_real_escape_string($this->input->get('name',TRUE)),ENT_QUOTES);
 		$pass     = htmlspecialchars(mysql_real_escape_string($this->input->get('pass',TRUE)),ENT_QUOTES);
 		$query = array('LoginName'=>$userName,'LoginPass'=>trim($this->ablog->a_hash($pass)));
