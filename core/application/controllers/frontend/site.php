@@ -9,7 +9,7 @@ class Site extends Frontend_Controller {
 
     }
 	public function index(){
-
+		
 		$total_rows      = $this->model_article->count_db();
 		$data['page']    = $this->template->PageCount($total_rows ,'index' ,'' ,'2');
 		$count = $this->uri->segment(2);
@@ -17,6 +17,7 @@ class Site extends Frontend_Controller {
 		$data['article'] = $this->lib_database->limit('article',$where,5,$count,'publish_up','DESC');
 		$this->template->out($data);					
 	}
+	
 	public function pages(){
 		
 		$page = $this->lib_database->get('pages',NULL,array('enTitle'=>$this->uri->segment(2)));
@@ -59,9 +60,6 @@ class Site extends Frontend_Controller {
 						 'showComment' => $row->comment);
 			
 		}
-		
-		
-		
 		$data['comment'] = $this->model_comment->get_by(array('id_article'=>$id,'active'=>1)); 
 	    $this->template->out($data);
 		}

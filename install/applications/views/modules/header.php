@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <link rel="shortcut icon" href="images/tomatocart.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="../../../../install/applications/views/modules/images/tomatocart.ico" type="image/x-icon" />
     <title>ablog سیستم مدیریت محتوای</title>
     <meta name="robots" content="noindex,nofollow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,7 +45,7 @@
         	</div>
             
             <div class="col-md-4 text-center">
-    			<a href="index.php"><img src="<?php echo site_url('assets/img/logo.png'); ?>" border="0" title="ablog, Open Source Shopping Cart Solutions" style="margin: 10px 10px 0px 10px;" /></a>
+    			<a href="../../../../install/applications/views/modules/index.php"><img src="<?php echo site_url('assets/img/logo.png'); ?>" border="0" title="ablog, Open Source Shopping Cart Solutions" style="margin: 10px 10px 0px 10px;" /></a>
         	</div>
         </div>
     </div>

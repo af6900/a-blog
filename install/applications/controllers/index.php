@@ -22,6 +22,8 @@ class Index extends A_Controller
      */
     public function index($view = null)
     {
+
+		
 	    //load header
         $this->load->view('modules/header');
         //load view

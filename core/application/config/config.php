@@ -232,7 +232,7 @@ $config['cache_path'] = 'temporary/cache/';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'AAhOM9TLQ3CcEYr62TDdF07Pi8C1l3r9';
+$config['encryption_key'] = '047ebd890f28e3557a73c15cda4e2619';
 
 /*
 |--------------------------------------------------------------------------
@@ -252,11 +252,11 @@ $config['encryption_key'] = 'AAhOM9TLQ3CcEYr62TDdF07Pi8C1l3r9';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name']		= 'asession';
+$config['sess_cookie_name']		= 'session';
 $config['sess_expiration']		= 3600;
 $config['sess_expire_on_close']	= TRUE;
 $config['sess_encrypt_cookie']	= TRUE;
-$config['sess_use_database']	= TRUE;
+$config['sess_use_database'] = TRUE;
 $config['sess_table_name']		= 'sessions';
 $config['sess_match_ip']		= TRUE;
 $config['sess_match_useragent']	= TRUE;

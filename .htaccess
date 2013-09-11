@@ -1,3 +1,7 @@
+<Files *.sql> 
+    Order deny,allow
+    Deny from all
+</Files>
 
 RewriteEngine on
 
@@ -7,14 +11,6 @@ RewriteCond %{REQUEST_FILENAME} !-l
 RewriteCond $1 !^(index\.php|images|core|assets|robots\.txt)
 RewriteRule ^(.+)$ index.php/$1 [L,QSA]
 
-<Files .*>
-	Order Deny,Allow
-	Deny From All
-</Files>
 
-<Files *.sql> 
-    Order deny,allow
-    Deny from all
-</Files>
 
 Options -Indexes
