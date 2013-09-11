@@ -9,6 +9,7 @@
     }
     
     $www_location = substr($www_location, 0, strpos($www_location, 'install'));
+
 ?>
 <div class="container clearfix">
     <div class="row">
@@ -26,7 +27,7 @@
             </div>
     	</div>
         
-    	<div class="col-md-9 content text-right">
+    	<div class="col-md-9 content text-right dir-rtl">
     		<h1><?php echo lang('page_title_finished'); ?></h1>
     		
     		<div><?php echo lang('text_finished'); ?></div>
@@ -36,8 +37,8 @@
     		</p>
     		
     		<div class="row large">
-    			<div class="col-md-6"><a class="btn btn-primary catalog" alt="Catalog" href="<?php echo $www_location; ?>" target="_blank"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;Catalog</a></div>
-    			<div class="col-md-6"><a class="btn btn-primary admin" alt="Administration Tool" href="<?php echo $www_location; ?>admin" target="_blank"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;Administration Tool</a></div>
+    			<div class="col-md-6"><a class="btn btn-primary catalog" alt="Catalog" href="<?php echo $www_location; ?>" target="_blank"><i class="glyphicon glyphicon-home"></i>&nbsp;&nbsp;<?php echo lang('btn_view_site'); ?></a></div>
+    			<div class="col-md-6 text-left"><a class="btn btn-primary admin" alt="Administration Tool" href="<?php echo $www_location; ?>admin" target="_blank"><i class="glyphicon glyphicon-user"></i>&nbsp;&nbsp;<?php echo lang('btn_admin_panel'); ?></a></div>
     		</div>
     	</div>
 	</div>

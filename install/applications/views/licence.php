@@ -13,7 +13,7 @@
 
     	</div>
         
-    	<div class="col-md-9 content pull-left text-right">
+    	<div class="col-md-9 content pull-left dir-rtl">
         	<h1><?php echo lang('page_title_welcome'); ?></h1>
         
         	<p><?php echo lang('text_welcome'); ?></p>

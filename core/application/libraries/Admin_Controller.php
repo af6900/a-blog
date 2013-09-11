@@ -6,9 +6,14 @@ function __construct ()
 	{
 		parent::__construct();
 		$this->CI =& get_instance();
+		if(file_exists('./install')){
+				redirect('install');
+		 }
 		if($this->session->userdata('is_logged_in') === FALSE){
 			redirect('login');
 			}
+			
+	
 	
 	}
 

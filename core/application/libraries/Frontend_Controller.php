@@ -10,7 +10,9 @@ class Frontend_Controller extends MY_Controller
 				redirect('off');
 				}
 				
-				
+			if(file_exists('./install')){
+				redirect('install');
+				}	
 		$this->web_config->start_cache();
 	}
 }

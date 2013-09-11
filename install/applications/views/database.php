@@ -6,6 +6,8 @@
         'database_importing' => array('icon' => 'progress.gif', 'message' => lang('rpc_database_importing')),
         'database_imported' => array('icon' => 'success.gif', 'message' => lang('rpc_database_imported')),
         'database_import_error' => array('icon' => 'failed.gif', 'message' => lang('rpc_database_import_error')));
+		 
+		 $PREFIX = substr(base64_encode(rand(111111,999999)), 0, 3);
 ?>
 <div class="container clearfix">
     <div class="row">
@@ -69,7 +71,7 @@
                       
                      <div class="form-group">
                         <label class="control-label" for="DB_TABLE_PREFIX"><?php echo lang('param_database_prefix'); ?>:</label>
-                        <input type="text" class="form-control dir-ltr" id="DB_TABLE_PREFIX" name="DB_TABLE_PREFIX" <?php if(!empty($DB_TABLE_PREFIX)){echo "value='$DB_TABLE_PREFIX'";}else{echo "value='toc_'";} ?> />
+                        <input type="text" class="form-control dir-ltr" id="DB_TABLE_PREFIX" name="DB_TABLE_PREFIX" <?php if(!empty($DB_TABLE_PREFIX)){echo "value='$DB_TABLE_PREFIX'";}else{echo "value='".$PREFIX."_'";} ?> />
                         <p class="help-block"><?php echo lang('param_database_prefix_description'); ?></p>
                       </div>
                   </div>

@@ -23,7 +23,7 @@
     <div class="container">
     	<div class="row">
         	
-        	<div class="col-md-8">
+        	<div class="col-md-8 dir-rtl">
             	<div class="row clearfix">
                     <ul class="languages pull-left">
                         <li><b><?php echo lang('title_language'); ?></b></li>

@@ -1,11 +1,7 @@
-INSERT INTO `a_article` (`id`, `title`, `sectionId`, `keywords`, `summary`, `fulltext`, `author`, `date`, `archive`, `archiveDate`, `comment`, `visit`, `publish_up`, `publish_down`) VALUES (2, 'درباره ما1111111', 8, 'درباره ما22222222', '<p>werwerبلیبلیبیبل<br></p>', '', 'sarbaz', 'پنجشنبه ۱۴ شهریور ۱۳۹۲', 0, '', 1, 62, 13061392, 99999999);
-INSERT INTO `a_article` (`id`, `title`, `sectionId`, `keywords`, `summary`, `fulltext`, `author`, `date`, `archive`, `archiveDate`, `comment`, `visit`, `publish_up`, `publish_down`) VALUES (3, 'درباره ما8', 8, 'آلوده,رستاک', '<p>lhjlhkj<br></p>', '', 'sarbaz', 'چهارشنبه ۱۳ شهریور ۱۳۹۲', 0, '', 1, 6, 14061392, 99999999);
-INSERT INTO `a_article` (`id`, `title`, `sectionId`, `keywords`, `summary`, `fulltext`, `author`, `date`, `archive`, `archiveDate`, `comment`, `visit`, `publish_up`, `publish_down`) VALUES (4, 'تست شماره 2', 10, 'تست', '<p>سیبسیبسیب<br></p>', '', 'sarbaz', 'پنجشنبه ۱۴ شهریور ۱۳۹۲', 0, '', 1, 19, 14061392, 15061392);
-INSERT INTO `a_article` (`id`, `title`, `sectionId`, `keywords`, `summary`, `fulltext`, `author`, `date`, `archive`, `archiveDate`, `comment`, `visit`, `publish_up`, `publish_down`) VALUES (5, 'تست شماره 59', 8, 'تست شماره 9', '<p>تست<br></p>', '', 'sarbaz', 'پنجشنبه ۱۴ شهریور ۱۳۹۲', 0, '', 1, 32, 15061392, 16061392);
+INSERT INTO `a_article` (`id`, `title`, `sectionId`, `keywords`, `summary`, `fulltext`, `author`, `date`, `archive`, `archiveDate`, `comment`, `visit`, `publish_up`, `publish_down`) VALUES (1, 'کلمات کلیدی', 1, 'تست عنوان', '<p>سلام رفیق<br></p>', '', 'مدیر', 'پنجشنبه ۱۴ شهریور ۱۳۹۲', 0, '', 1, 62, 13061392, 99999999);
 
+INSERT INTO `a_article_section` (`id`, `title`, `visit`) VALUES (1, 'بخش خبری', 14);
 
-INSERT INTO `a_article_section` (`id`, `title`, `visit`) VALUES (8, 'کامپیوتر', 14);
-INSERT INTO `a_article_section` (`id`, `title`, `visit`) VALUES (10, 'تبلت1', 23);
 
 
 INSERT INTO `a_block` (`id`, `name`, `box`, `position`, `active`, `row`) VALUES (1, 'بخش ها', 1, 'left', 1, 0);

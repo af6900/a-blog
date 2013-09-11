@@ -7,7 +7,7 @@
  		 <!--<a target="new" href="<?php echo site_url('email/send/'.$row->id)?>" >ارسال</a>-->
           <label class="date"><?php
 
-		   echo $this->lib_database->get_filde('a_article_section',array('id'=>$row->sectionId),'title')
+		   echo $this->lib_database->get_filde('article_section',array('id'=>$row->sectionId),'title')
 		   ?></label>
         </div>
         <div class="article">

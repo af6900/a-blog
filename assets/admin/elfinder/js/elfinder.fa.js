@@ -1,3 +1,8 @@
+/**
+ * Arabic translation (Syrian Localization, it may differ if you aren't from Syria or any Country in Middle East)
+ * @author Tawfek Daghistani <tawfekov@gmail.com>
+ * @version 2011-07-09
+ */
 if (elFinder && elFinder.prototype && typeof(elFinder.prototype.i18) == 'object') {
 	elFinder.prototype.i18.ar = {
 		translator : 'Tawfek Daghistani &lt;tawfekov@gmail.com&gt;',

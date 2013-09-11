@@ -11,7 +11,6 @@ class login extends CI_Controller {
     }
 	
 	public function index(){
-		
 		$this->db->cache_off();
 		$this->ip_banned->banned();
 		$this->load->view('admin/Login/login'); 
