@@ -5,13 +5,7 @@ class login extends CI_Controller {
    public function __construct()
     {
         parent::__construct();
-		
-		
-		$this->db->cache_delete('admin_logout','index');
-		$this->db->cache_delete('login', 'index');
-		$this->db->cache_delete('validate_credentials', 'index');
-	    $this->db->cache_delete('validate_code', 'index');
-		$this->db->cache_off();
+
     }
 	
 	public function index(){
@@ -21,7 +15,7 @@ class login extends CI_Controller {
 		}
 		
 	public function validate_credentials(){
-		$this->db->cache_delete('validate_credentials', 'index');
+		
 		$userName = htmlspecialchars(mysql_real_escape_string($this->input->get('name',TRUE)),ENT_QUOTES);
 		$pass     = htmlspecialchars(mysql_real_escape_string($this->input->get('pass',TRUE)),ENT_QUOTES);
 		$query = array('LoginName'=>$userName,'LoginPass'=>trim($this->ablog->a_hash($pass)));
@@ -46,21 +40,27 @@ class login extends CI_Controller {
 						if($this->web_config->get_send_email() == 1){
 							$this->password_reset->send_validate_code($email,$code);
 							}		
-						echo json_encode('validate_code');
+						$this->output->set_output(json_encode('validate_code'));
 						
 					}else{
 					   $data = array('avatar'=>$image,'name'=>$name,'is_logged_in'=>1);
 		  			   $this->session->set_userdata($data);
-					   echo json_encode('admin');
+					   $this->output->set_output(json_encode('admin'));
 						}			
 			}else{
-				
-				echo json_encode('login');
+
+				$this->output->set_output(json_encode('login'));
 				
 				}
+				
+				
 		
 		}
 	public function user_logout(){
+		$this->db->cache_delete('admin_logout','index');
+		$this->db->cache_delete('login', 'index');
+		$this->db->cache_delete('validate_credentials', 'index');
+	    $this->db->cache_delete('validate_code', 'index');
 		$this->session->sess_destroy();
 		redirect('login');
 		}
@@ -68,7 +68,7 @@ class login extends CI_Controller {
 	public function passReset(){
 			$email = $this->input->get('email');
 			$a = $this->password_reset->validate_user('admin_user',array('UserEmail'=>$email));
-			echo json_encode($a);
+			$this->output->set_output(json_encode($a));
 		}
 		
 	public function validate_code(){
