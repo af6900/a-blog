@@ -45,8 +45,7 @@ class status extends Admin_Controller {
 	public function save(){
 		$data = array(
 					'text'=>$this->input->get('status',TRUE),
-					'startPublic' => $this->input->get('start',TRUE),
-					'endPublic' => $this->input->get('end',TRUE)
+					'date'=> date('Ymd')
 					);
 		$this->lib_database->save('status',$data);
 		echo json_decode('1'); 

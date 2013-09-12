@@ -101,25 +101,15 @@ function status(){
 	    $CI =& get_instance();
 		$text = '';
 		$count = $CI->lib_database->count_all('status');
-		$result = $CI->lib_database->limit('status',array('date'=>adate(2)),1);
+		$result = $CI->lib_database->limit('status',array('date'=>date('Ymd')),1);
 		foreach($result as $row){
 			$text = $row->text;
 			$id = $row->id;
 			}
 		if(isset($id)){
-			$pre = $CI->lib_database->save('status',array('date'=>adate(2)+$count-1),array('id <' => $id));
-			$next = $CI->lib_database->limit('status',array('id >'=>$id),1);
-			foreach( $next as $row ){
-			   $next_id = $row->id;
-				}
-		}
-			
-		
-
-	  if(isset($next_id)){
-		  $CI->lib_database->save('status',array('date'=>adate(2)+1),array('id'=>$next_id));
-		  }
-		
+			$CI->lib_database->save('status',array('date'=>date('Ymd')+1),array('id <'=>$id));
+			$CI->lib_database->save('status',array('date'=>date('Ymd')+1),array('id >'=> $id));
+			}
 		?>
 		<script type='text/javascript' src='<?php assets("js/jquery.ticker.js")?>'></script>
         <?php
