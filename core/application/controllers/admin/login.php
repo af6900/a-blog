@@ -11,13 +11,12 @@ class login extends CI_Controller {
 	public function index(){
 
 		$this->ip_banned->banned();
-		$this->load->view('admin/Login/login'); 
+		$this->load->view('admin/Login/login');
 		}
 		
 	public function validate_credentials(){
-		
-		$userName = htmlspecialchars(mysql_real_escape_string($this->input->get('name',TRUE)),ENT_QUOTES);
-		$pass     = htmlspecialchars(mysql_real_escape_string($this->input->get('pass',TRUE)),ENT_QUOTES);
+		$userName = htmlspecialchars(mysql_real_escape_string($this->input->post('name',TRUE)),ENT_QUOTES);
+		$pass     = htmlspecialchars(mysql_real_escape_string($this->input->post('pass',TRUE)),ENT_QUOTES);
 		$query = array('LoginName'=>$userName,'LoginPass'=>trim($this->ablog->a_hash($pass)));
 		$result = $this->lib_database->can_log_in('admin_user',$query);
 		$image = $this->lib_database->get_filde('admin_user',array('LoginName'=>$userName),'UserAvatar');
@@ -57,10 +56,7 @@ class login extends CI_Controller {
 		
 		}
 	public function user_logout(){
-		$this->db->cache_delete('admin_logout','index');
-		$this->db->cache_delete('login', 'index');
-		$this->db->cache_delete('validate_credentials', 'index');
-	    $this->db->cache_delete('validate_code', 'index');
+
 		$this->session->sess_destroy();
 		redirect('login');
 		}

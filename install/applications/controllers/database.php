@@ -41,8 +41,8 @@ class Database extends A_Controller
             'dbprefix' => $prefix,
             'pconnect' => FALSE,
             'db_debug' => FALSE,
-            'cache_on' => TRUE,
-            'cachedir' => 'temporary/database_cache/',
+            'cache_on' => FALSE,
+            'cachedir' => 'temporary/cache/',
             'char_set' => 'utf8',
             'dbcollat' => 'utf8_general_ci');
 

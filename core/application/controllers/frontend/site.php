@@ -9,7 +9,7 @@ class Site extends Frontend_Controller {
 
     }
 	public function index(){
-		
+
 		$total_rows      = $this->model_article->count_db();
 		$data['page']    = $this->template->PageCount($total_rows ,'index' ,'' ,'2');
 		$count = $this->uri->segment(2);

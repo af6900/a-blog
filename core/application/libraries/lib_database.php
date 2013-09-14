@@ -12,7 +12,8 @@ class CI_lib_database {
 	*/
 	public function save($tableName = NULL, $data = array() ,$where = NULL)
 	{
-		$this->CI->output->clear_all_cache();
+		//$this->CI->output->clear_all_cache();
+		
 		/*insert*/
 		if($where === NULL ){
 			$this->CI->db->set($data);
@@ -28,6 +29,7 @@ class CI_lib_database {
 	}
 	
 	public function get($tableName = NULL, $method = NULL, $where = NULL, $sortFilde = NULL ,$sort = NULL){
+		
 		if(! is_null($where))
 		{
 			$this->CI->db->where($where);
@@ -63,7 +65,7 @@ class CI_lib_database {
 	
 	public function limit($tableName = NULL, $where = NULL, $limit = NULL, $offset = NULL, $sortFilde = NULL, $sort = NULL){
 		$this->CI->db->limit($limit,$offset);
-		return $this->get($tableName, $method = 'result' ,$where,$sortFilde ,$sort);
+		return $this->get($tableName, 'result' ,$where,$sortFilde ,$sort);
 		}
 	
 	public function get_filde($tableName = NULL, $where = array(), $filde = NULL){

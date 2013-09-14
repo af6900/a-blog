@@ -29,6 +29,13 @@ class Admin extends Admin_Controller {
 			$this->db->cache_delete_all();
 			$this->CI->lib_database->save('web_config',array('clear_cache'=> time()+ 7200),array('id'=>1));
 			}
+			
+			
+			
+			
+
+			
+			
 	}
 
 	public function fileManager()

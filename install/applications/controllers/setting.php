@@ -108,6 +108,28 @@ class Setting extends A_Controller
 		@fputs($fpn, implode("\n", $encryption));
 		fclose($fpn);
 		
+		
+		$www_location = 'http://' . $_SERVER['HTTP_HOST'];
+		if (isset($_SERVER['REQUEST_URI']) && (empty($_SERVER['REQUEST_URI']) === false)) {
+			$www_location .= $_SERVER['REQUEST_URI'];
+		} else {
+			$www_location .= $_SERVER['SCRIPT_FILENAME'];
+		}
+		
+		$www_location = substr($www_location, 0, strpos($www_location, 'install'));
+				
+		$url = file_get_contents('../core/application/config/config.php');
+        $base = explode("\n", $url);
+		$base_url = str_replace( '$config[\'base_url\'] = \'blog\';','$config[\'base_url\'] = \''.$www_location.'\';', $base); 
+        $fpc = @fopen('../core/application/config/config.php', 'w');
+        @fputs($fpc, implode("\n", $base_url));
+        fclose($fpc);
+				
+		
+		
+		write_file('./lock.md5', md5('blog install lock'),'w');
+
+		
     }
 
 
