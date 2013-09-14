@@ -10,7 +10,12 @@
 |
 */
 
-
+$hook['pre_controller'] = array(
+    'class'    => '',
+    'function' => 'install_hook',
+    'filename' => 'blog_install_hook.php',
+    'filepath' => 'hooks'
+);
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */
