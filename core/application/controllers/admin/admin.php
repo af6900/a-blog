@@ -11,6 +11,7 @@ class Admin extends Admin_Controller {
 	public function index()
 	{
 
+		
 		$data['articleList'] = $this->lib_database->limit('article',NULL, 5,NULL,'id','DESC');
 		$data['articleCout'] =  $this->lib_database->count_all('article');	
 		$data['sectionCout'] =  $this->lib_database->count_all('article_section');

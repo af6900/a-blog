@@ -9,7 +9,22 @@
 
  
   <div class="col-xs-12 col-sm-6 col-md-4">
-  
+  		<div class="col-xs-12 col-sm-12 col-md-12 text-left">
+          <ul class="languages list-inline">
+                       <?php
+					 		 echo lang('image_button_retry');
+                            foreach (get_languages() as $language) :
+							
+                        ?>
+                        <li><?php echo '<a href="admin?language=' . $language['code'] . '">
+						<img src="' . get_language_flag($language['code']) . '" title="' . $language['title'] . '" alt="' . $language['title'] . '" />
+						</a>'; ?></li>
+                        <?php
+                            endforeach;
+                        ?>
+                    </ul>
+        
+        </div>
       	<div class="col-xs-12 col-sm-12 col-md-12">
             <div class="panel panel-primary">
               <div class="panel-body">
@@ -20,7 +35,7 @@
                   <?php endif ?>
                      <ul class="list-unstyled">
                      	<li><span><?php echo $UserName['name']?></span> : <i class="glyphicon glyphicon-user"></i></li>
-                        <li><span><?php echo $_SERVER['REMOTE_ADDR']?></span> : <i class="glyphicon glyphicon-globe"></i></li>
+                        <li><span><?php echo get_ip_address()?></span> : <i class="glyphicon glyphicon-globe"></i></li>
                         <li><span><?php echo adate()?></span>  : <i class="glyphicon glyphicon-calendar" ></i></li>
                         <li><?php echo anchor('admin_logout',"خروج ","title='خروج'")?> : <span class='glyphicon glyphicon-log-out'></span></li>
                      </ul>

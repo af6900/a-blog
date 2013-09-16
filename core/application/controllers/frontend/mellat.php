@@ -1,8 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class mellat extends Frontend_Controller {
-	      
-	// Frontend site v 1.0.1 
+
    public function __construct()
     {
         parent::__construct();
@@ -12,13 +10,10 @@ class mellat extends Frontend_Controller {
 		require_once(APPPATH.'libraries/nusoap/nusoap'.EXT); //includes nusoap
 		$pric = '100';
 		$order = rand(100000,999999);
-	    $res = $this->mellat->request($pric,$order,'http://theafshinnotes.ir/frontend/site/callback');
+	    $res = $this->mellat->request($pric,$order,'http://theafshinnotes.ir/callback');
 			$data = array('price'=>$pric,'order'=>$order,'res'=>$res);
 		  	$this->session->set_userdata($data);
 		$this->mellat->go2bank($res);
-		
-
-			
 		
 		}
 	public function callback(){
@@ -30,7 +25,7 @@ class mellat extends Frontend_Controller {
 			 $data['msg'] = 'کد رهگیری'.$this->mellat->SaleReferenceId;
 			 }else{
 				 
-				 echo 'انصراف از پرداخت';
+			$data['msg'] = 'انصراف از پرداخت';
 				 }
 			$this->template->out($data);
 		}

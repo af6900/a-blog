@@ -13,7 +13,7 @@ class adminUser extends Admin_Controller {
 		if($this->model_admin_users->validation() == TRUE){
 			 $avatar = $this->file->upload('./upload/avatar','gif|jpg|png');
 			 $save=(array('name'=>$this->input->post('name',TRUE),'LoginName'=> trim($this->input->post('LoginName',TRUE)),
-							'LoginPass'=>$this->ablog->a_hash(trim($this->input->post('LoginPass'))),
+							'LoginPass'=>encrypt(trim($this->input->post('LoginPass'))),
 							'UserEmail'=>trim($this->input->post('UserEmail',TRUE)),
 							'UserAvatar'=>$avatar,
 							'UserMobile'=>trim($this->input->post('mobile',TRUE))));
@@ -44,7 +44,7 @@ class adminUser extends Admin_Controller {
 	//=== Edit User Page ===\\	
 	public function edit(){
 		$id = $this->uri->segment(2);
-		$this->db->cache_delete('admin-user-edit', $id);
+
 		$data = $this->model_admin_users->get_by(array('id'=>$id)); 
 		if($data){ 
 			foreach($data as $row){
@@ -65,7 +65,7 @@ class adminUser extends Admin_Controller {
 		$avatar = $this->file->upload('./images/avatar','gif|jpg|png');
 		$name = $this->input->post('name',TRUE);
 		$loginName   = $this->input->post('LoginName',TRUE);
-		$pass   = $this->ablog->a_hash($this->input->post('LoginPass'));
+		$pass   = encrypt($this->input->post('LoginPass'));
 		$email  = $this->input->post('UserEmail',TRUE);
 		$mobile  = $this->input->post('mobile',TRUE);
 			if($avatar != NULL){

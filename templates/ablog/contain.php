@@ -21,7 +21,7 @@
         </div>
         <div style="clear:both;"></div>
     <div class="ContainFooter">
-    	<label class="lblcomment" style="margin-top:5px;"><a href="http://www.facebook.com/share.php?u=<?php echo base_url();?>summary/<?php echo  $row->id?>">
+    	<label class="lblcomment" style="margin-top:5px;"><a href="http://www.facebook.com/share.php?u=<?php echo base_url();?>summary?id=<?php echo  $row->id?>">
         <?php echo image('fb.png','width="20"')?>
         </a></label>
 		 <label class="author">نویسنده : <?php echo $row->author?></label>  <label class="author"><?php echo $row->date?></label>

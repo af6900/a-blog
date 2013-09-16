@@ -77,7 +77,7 @@ $autoload['libraries'] = array('database',
 */
 //$autoload['helper'] = array();
 $autoload['helper'] = array('url','file','form','security','language',
-							'captcha','boxes','download','text',
+							'captcha','boxes','download','text','lang_general',
 							'contain','blog','comment','template','qr','email');
 
 /*
@@ -109,7 +109,7 @@ $autoload['config'] = array();
 |
 */
 
-$autoload['language'] = array('site/farsi','admin/farsi');
+$autoload['language'] = array();
 
 
 /*

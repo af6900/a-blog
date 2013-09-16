@@ -17,7 +17,7 @@ class login extends CI_Controller {
 	public function validate_credentials(){
 		$userName = htmlspecialchars(mysql_real_escape_string($this->input->post('name',TRUE)),ENT_QUOTES);
 		$pass     = htmlspecialchars(mysql_real_escape_string($this->input->post('pass',TRUE)),ENT_QUOTES);
-		$query = array('LoginName'=>$userName,'LoginPass'=>trim($this->ablog->a_hash($pass)));
+		$query = array('LoginName'=>$userName,'LoginPass'=>trim(encrypt($pass)));
 		$result = $this->lib_database->can_log_in('admin_user',$query);
 		$image = $this->lib_database->get_filde('admin_user',array('LoginName'=>$userName),'UserAvatar');
 		$name = $this->lib_database->get_filde('admin_user',array('LoginName'=>$userName),'name');
@@ -30,7 +30,7 @@ class login extends CI_Controller {
 						$id = $this->lib_database->get_filde('admin_user',array('LoginName'=>$userName),'id');
 
 
-						$newCode = $this->ablog->a_hash($code);
+						$newCode = encrypt($code);
 						$userData = array('validateCode'=>$newCode);	
 						$this->model_admin_users->save($userData,$id);
 						if($this->web_config->get_send_sms() == 1){
@@ -75,7 +75,7 @@ class login extends CI_Controller {
 			$hash_code =  $this->model_admin_users->get_one(array('validateCode'=>$this->ablog->a_hash($input_code)),'validateCode');
 			$image = $this->model_admin_users->get_one(array('LoginName'=>$user_Name),'UserAvatar');
 			$name = $this->lib_database->get_filde('admin_user',array('LoginName'=>$user_Name),'name');
-		if($hash_code == $this->ablog->a_hash($input_code)){
+		if($hash_code == encrypt($input_code)){
 			$data = array('avatar'=>$image,'security_code'=>$hash_code,'name'=>$name,'is_logged_in'=>1);
 		    $this->session->set_userdata($data);
 				redirect('admin');	

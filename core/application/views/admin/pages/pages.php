@@ -4,10 +4,9 @@
       <div class="panel-heading">
         <h3 class="panel-title">ایجاد صفحه جدید</h3>
       </div>
+	  <?php echo form_open('save-pages');?>
       <div class="panel-body">
         <?php echo messages(NULL,'ذخیره','ثبت با موفقیت انجام شد','ثبت با موفقیت انجام نشد.');?> 
-<?php echo form_open('save-pages');?>
-
 
 <div class="span4 dir-rtl control-group">
 	<label class="control-label">کلمات کلیدی</label>
@@ -45,12 +44,13 @@
     </div>
 </div>
 
-<?php echo form_close();?>
+
       </div>
       <div class="panel-footer">
        
  <?php echo form_submit('submit','ذخیره','class="btn btn-primary"')?>
       </div>
+<?php echo form_close();?>
     </div>
 
 

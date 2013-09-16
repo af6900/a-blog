@@ -9,7 +9,7 @@ class Site extends Frontend_Controller {
 
     }
 	public function index(){
-
+		
 		$total_rows      = $this->model_article->count_db();
 		$data['page']    = $this->template->PageCount($total_rows ,'index' ,'' ,'2');
 		$count = $this->uri->segment(2);
@@ -47,7 +47,11 @@ class Site extends Frontend_Controller {
 	
 	
 	public function summary(){
-		$id = $this->uri->segment(2);
+		
+		 $id = $this->input->get('id');
+		 if ($id == ''){
+			 $id = $this->uri->segment(2);
+			 }
 		$article = $this->model_article->get($id);
 		foreach($article as $row)
 		{
@@ -85,7 +89,6 @@ class Site extends Frontend_Controller {
 		$this->template->out($data);
 		
 		}	
-
 
 }
 

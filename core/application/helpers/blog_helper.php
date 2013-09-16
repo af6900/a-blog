@@ -147,6 +147,9 @@ function adate($type = NULL, $format = NULL )
 		}
 	return $date;
 }
+ 
+ 
+ 
  		
 function news()
 {
@@ -160,3 +163,69 @@ function news()
 		}
 }
 
+
+
+
+if (!function_exists('get_ip_address'))
+{
+    function get_ip_address()
+    {
+        if (isset($_SERVER))
+        {
+            if (isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+            {
+                $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+            }
+            elseif (isset($_SERVER['HTTP_CLIENT_IP']))
+            {
+                $ip = $_SERVER['HTTP_CLIENT_IP'];
+            }
+            else
+            {
+                $ip = $_SERVER['REMOTE_ADDR'];
+            }
+        }
+        else
+        {
+            if (getenv('HTTP_X_FORWARDED_FOR'))
+            {
+                $ip = getenv('HTTP_X_FORWARDED_FOR');
+            }
+            elseif (getenv('HTTP_CLIENT_IP'))
+            {
+                $ip = getenv('HTTP_CLIENT_IP');
+            }
+            else
+            {
+                $ip = getenv('REMOTE_ADDR');
+            }
+        }
+
+        return $ip;
+    }
+}
+
+/**
+ * Encrypt password
+ *
+ * @access public
+ * @param $plian
+ * @return string
+ */
+if( ! function_exists('encrypt'))
+{
+    function encrypt($encrypt)
+    {
+		$CI =& get_instance();
+        $password = '';
+
+		  $salt = '#4osKp86d}.aO_J@QRoN_psk>q#45?';
+		  $salt .= $CI->config->item('encryption_key');
+		  $salt1 = $CI->config->item('encryption_key');
+		  $salt1 .="eaf66a7604370019def1ae85757c0b9553dbd1e0";
+		  $hash= do_hash(md5($salt . $encrypt . $salt1));
+		  $password = do_hash(sha1(base64_encode(md5($salt . $hash . $salt1))));
+
+        return $password;
+    }
+}

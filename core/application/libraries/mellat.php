@@ -1,10 +1,10 @@
 <?php
 include_once dirname(__FILE__).'/nusoap/nusoap.php';
-class mellat  
+class CI_mellat  
 {
-	const terminalID = 672673;
-	const username = 'widt';
-        const password = 2617;
+	const terminalID = 855242;
+	const username = 'vitrina';
+    const password = 'vi54ri79';
 	
 	
 	  //const webservice = 'https://pgws.bpm.bankmellat.ir/pgwchannel/services/pgw';

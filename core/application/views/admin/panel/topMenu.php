@@ -33,7 +33,7 @@
           </a>
           <ul class="dropdown-menu">
               <li><?php echo anchor('friend','دوستان');?></li>
-              <li><?php echo anchor('admin/banner','تبلیغات');?></li>
+              <li><?php echo anchor('banner','تبلیغات');?></li>
               <li><?php echo anchor('box','بلوک ها');?></li>
               <li><?php echo anchor('poll',"ایجاد نظرسنجی")?></li>
               <li><?php echo anchor('backup',"پشتیبان گیری")?></li>
