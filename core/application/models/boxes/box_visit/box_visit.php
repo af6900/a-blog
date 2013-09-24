@@ -27,14 +27,21 @@ class box_visit extends CI_Model
 		$total = 1 + $this->lib_database->get_filde('visit',NULL,'total');
 		$this->lib_database->save('visit',array('total'=>$total),array('id'=>1));
 		
-		$return = '<div class="boxTitle">آمار</div>';
-		$return .= '<ul class="UlLeftMenu">';
-		$return .= "<li class='LiRightMenu'>"."کاربر:".$this->lib_database->count_all('useronline')."</li>";
-		$return .= "<li class='LiRightMenu'>"."امروز:".$this->lib_database->get_filde('visit',NULL,'dey')."</li>";
-		$return .= "<li class='LiRightMenu'>"."دیروز:".$this->lib_database->get_filde('visit',NULL,'week')."</li>";
-		$return .= "<li class='LiRightMenu'>"."کل:".$this->lib_database->get_filde('visit',NULL,'total')."</li>";
-		$return .= "<li class='LiRightMenu'>"."آی پی:".$_SERVER['REMOTE_ADDR']."</li>";
-		$return .= '</ul>';
+			$return = '<div class="panel panel-default text-right dir-rtl">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">آمار</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";
+			$return .= "<a href='#' class='list-group-item'>"."کاربر <span class='badge pull-left'>".$this->lib_database->count_all('useronline')."</span></a>";
+			$return .= "<a href='#' class='list-group-item'>"."امروز <span class='badge pull-left'>".$this->lib_database->get_filde('visit',NULL,'dey')."</span></a>";
+			$return .= "<a href='#' class='list-group-item'>"."دیروز <span class='badge pull-left'>".$this->lib_database->get_filde('visit',NULL,'week')."</span></a>";
+			$return .= "<a href='#' class='list-group-item'>"."کل <span class='badge pull-left'>".$this->lib_database->get_filde('visit',NULL,'total')."</span></a>";
+			$return .= "<a href='#' class='list-group-item'>"."آی پی <span class='badge pull-left'>".get_ip_address()."</span></a>";
+			$return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';
+		
 		return $return;
 	}
 	

@@ -2,17 +2,21 @@
 class box_author extends CI_Model
 {
 	public function initialize(){
-			$count = $this->model_boxes->configuration_kay('COUNT_AUTHOR');
+			$count = $this->boxes_model->configuration_kay('COUNT_AUTHOR');
 		    $author = $this->lib_database->group_by('article','author',$count);
-		    $return = '<div class="boxTitle">نویسنده ها</div>';
-		    $return .= "<ul class='UlLeftMenu'>";
+		    $return = '<div class="panel panel-default text-right">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">نویسندگان</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";
 			foreach ($author as $row){
-				$return .= "<li class='LiRightMenu'>";
-				$return .= "<a href='#'>".$row->author."</a>";
-				$return .="</li>";
+				$return .= "<a href='#' class='list-group-item'>".$row->author."</a>";
 				}
-			$return .="</ul>";
-		return $return;	
+			$return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';
+		 return $return;
 	}
 	
 	public function model_install(){	

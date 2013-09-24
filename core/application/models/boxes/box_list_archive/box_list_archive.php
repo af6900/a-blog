@@ -3,15 +3,21 @@ class box_list_archive extends CI_Model
 {
 	public function initialize(){
 
-		$ListArticle = $this->model_article->group_by(array('archive'=>'1'),'archiveDate');
-		$return = '<div class="boxTitle">آرشیو</div>';
-		$return .= '<ul class="UlLeftMenu">';
-		foreach ($ListArticle as $row){
-			$return .= "<li class='LiRightMenu'><a href=".base_url()."archive/".$row->archiveDate.">";
-			$return .= $row->archiveDate;
-			$return .= "</a></li>";
-			}
-		$return .= "</ul>";	
+		    $ListArticle = $this->lib_database->group_by('article','archiveDate',1);
+
+			$return = '<div class="panel panel-default text-right dir-rtl">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">آرشیو</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";
+			foreach ($ListArticle as $row){
+				$return .= "<a href='".site_url("archive")."/".$row->archiveDate."' class='list-group-item'>".$row->archiveDate."</a>";
+				}
+			$return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';
+
 		return $return;	
 	}
 		

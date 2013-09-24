@@ -73,6 +73,8 @@ if (defined('ENVIRONMENT'))
  *
  */
 	$application_folder = 'core/application';
+	
+
 
 /*
  * --------------------------------------------------------------------

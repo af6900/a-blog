@@ -12,7 +12,7 @@
         	<td align="center">ارسال با موفقیت انجام شد</td>
         </tr>
      	<tr>
-        	<td align="left"><a href="<?php echo $_SERVER['../../core/blog/views/email/HTTP_REFERER']?>">بازگشت</a></td>
+        	<td align="left"><a href="<?php echo $_SERVER['../../../blog/views/email/HTTP_REFERER']?>">بازگشت</a></td>
         </tr>
     </table>
 </body>

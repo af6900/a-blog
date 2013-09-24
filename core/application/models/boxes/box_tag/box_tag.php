@@ -2,18 +2,19 @@
 class box_tag extends CI_Model
 {
 	public function initialize(){
-		$web = $this->model_web_config->get();
-		$return = '<div class="boxTitle">تگ بازار</div>';
-		foreach($web as $row){
-			$Keywords= $row->Keywords;
-				}
-			$return .='<div class="Tag">';
-			$tag = explode(',',$Keywords);
-			foreach($tag as $row){
-				$return .='<a href="'.site_url().'">'.$row.'</a>';
-				}
-				
+		   $Keywords = $this->lib_database->get_filde('web_config',array('id'=>1),'Keywords');
+			$return = '<div class="panel panel-default text-right">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">تگ بازار</label>';
 			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+				$tag = explode(',',$Keywords);
+				foreach($tag as $row){
+					$return .='<a href="'.site_url().'" >'.$row.'</a> ';
+					}
+			$return .='</div>';
+			$return .= '</div>';	
+			
 		return $return;	
 	}
 	

@@ -2,17 +2,22 @@
 class box_section_list extends CI_Model
 {
 	public function initialize(){
-	$count = $this->model_boxes->configuration_kay('ARTICLE_LIST');	
-	$Section = $this->model_section->get_limit($count);
-	$sectinBox = '<div class="boxTitle">بخش ها</div>';
-	$sectinBox .="<ul class='UlLeftMenu'>";
-	foreach ($Section as $row){
-		$sectinBox .= "<li class='LiRightMenu'><a href='".base_url()."section/$row->title'>";
-		$sectinBox .=  $row->title;
-		$sectinBox .= '</a></li>';
-    	}
-		$sectinBox .= '</ul>';
-		return $sectinBox;
+			$count = $this->boxes_model->configuration_kay('ARTICLE_LIST');	
+			$Section = $this->section_model->get_limit($count);
+		   	$return = '<div class="panel panel-info text-right">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">بخش ها</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<ul class = 'nav nav-pills nav-stacked'>";
+			foreach ($Section as $row){
+				$return .= "<li ><a href='".site_url('section').'/'.$row->title."'>".$row->title."</a></li>";
+				}
+			$return .="</ul>";					
+			$return .='</div>';
+			$return .= '</div>';	
+
+		return $return;
 	}
 	
 	public function model_install(){

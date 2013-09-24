@@ -1,18 +1,24 @@
 <?php
-class box_news extends MY_Model
+class box_news extends AB_Model
 {
 	public function initialize(){
-		$count = $this->model_boxes->configuration_kay('COUNT_LIST_NEWS');
+		$count = $this->boxes_model->configuration_kay('COUNT_LIST_NEWS');
 		$weher = array('publish_up <='=>adate(3),'publish_down >='=>adate(3)); 
 		$newsList = $this->lib_database->get('news',NULL,$weher,'id','DESC');
-		$return = '<div class="boxTitle">لیست اخبار</div>';
-		$return .= '<ul class="UlLeftMenu">';
-		foreach ($newsList as $row){
-			$return .= "<li class='LiRightMenu'><a href=".site_url("news")."/".$row->id.">";
-			$return .= $row->title;
-			$return .= "</a></li>";
-			}
-		$return .= "</ul>";	
+		
+		   	$return = '<div class="panel panel-default text-right">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">لیست اخبار</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";
+			foreach ($newsList as $row){
+				$return .= "<a href=".site_url("news")."/".$row->id." class='list-group-item'>".$row->title."</a>";
+				}
+			$return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';		
+
 		return $return;	
 	}
 	

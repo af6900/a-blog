@@ -55,15 +55,12 @@ $autoload['libraries'] = array('database',
 								'session',
 								'email',
 								'form_validation',
-								'ablog',
 								'jalalidate',
 								'pagination',
-								'unzip',
 								'template',
 								'upload',
 								'sms','mellat',
-								'password_reset',
-								'web_config','file','ip_banned','lib_database');
+							    'lib_database');
  								
 
 
@@ -77,8 +74,8 @@ $autoload['libraries'] = array('database',
 */
 //$autoload['helper'] = array();
 $autoload['helper'] = array('url','file','form','security','language',
-							'captcha','boxes','download','text','lang_general',
-							'contain','blog','comment','template','qr','email');
+							'captcha','download','text','site_language','gravatar','site_form',
+							'comment','template','qr','email','site','slider','nav','email');
 
 /*
 | -------------------------------------------------------------------
@@ -122,20 +119,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array(
-						   'application/model_admin_users',
-						   'application/model_web_config',
-						   'application/model_article',
-						   'application/model_email_template',
-						   'application/model_comment',
-						   'application/model_section',
-						   'application/model_polls',
-						   'application/model_boxes',
-						   'application/model_menu',
-						   'application/model_block',
-						   'application/model_ip_banned',
-						   'application/model_search',
-						   'application/model_web_template');
+$autoload['model'] = array('section_model','boxes_model','comment_model');
 
 
 /* End of file autoload.php */

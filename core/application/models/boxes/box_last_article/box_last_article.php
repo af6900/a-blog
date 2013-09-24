@@ -2,17 +2,23 @@
 class box_last_article extends CI_Model
 {
 	public function initialize(){
-		$count = $this->model_boxes->configuration_kay('COUNT_LAST_ARTICLE');
+		$count = $this->boxes_model->configuration_kay('COUNT_LAST_ARTICLE');
 		$where = "archive ='0' and publish_up <= '".adate(4).date('His')."'and publish_down >= '".adate(4)."'";
 		$LastArticle = $this->lib_database->limit('article',$where,$count,NULL,'publish_up','DESC');
-		$return = '<div class="boxTitle">آخرین مطالب</div>';
-		$return .= '<ul class="UlLeftMenu">';
-		foreach ($LastArticle as $row){
-			$return .= "<li class='LiRightMenu'><a href=".site_url("summary")."/".$row->id.">";
-			$return .= $row->title;
-			$return .= "</a></li>";
-			}
-		$return .= "</ul>";	
+
+		   	$return = '<div class="panel panel-default text-right dir-rtl">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">آخرین مطالب</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";
+			foreach ($LastArticle as $row){
+			$return .="<a class='list-group-item' href='".site_url('summary'.'/'.rawurlencode(str_replace(' ','-',urldecode($row->title))))."'>".$row->title."</a>";
+				}
+			$return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';
+
 		return $return;	
 	}
 	

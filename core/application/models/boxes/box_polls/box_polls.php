@@ -4,23 +4,29 @@ class box_polls extends CI_Model
 	public function initialize(){
 			
 		$get_poll = $this->lib_database->get('polls',NULL,NULL,'id_polls');
-		foreach($get_poll as $row){
+			foreach($get_poll as $row){
 			$get_answer = $this->lib_database->get('polls_answer',NULL,array('id_poll'=>$row->id_polls),'id_answer');
-			 $return = '<div class="boxTitle">'.$row->polls_title.'</div>';
-			 				     
-    		 $return .= '<input type="hidden" value="'.$_SERVER['REMOTE_ADDR'].'id="user_ip"/>';
-			 $return .= '<input type="hidden" value="'.$row->id_polls.'id="polls_id"/>';
+			
+			$return = '<div class="panel panel-default text-right">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">'.$row->polls_title.'</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";    
+    		$return .= '<input type="hidden" value="'.get_ip_Address().' id="user_ip"/>';
+			$return .= '<input type="hidden" value="'.$row->id_polls.'id="polls_id"/>';
 			 
 			 foreach($get_answer as $answer_row){
-				 $return .='<ul class="UlLeftMenu">';
-				 $return .='<li class="LiRightMenu">';
+				 $return .='<a class="list-group-item">';
 				 $return .= '<input type="radio" name="polls" class="radio" value="'.$answer_row->id_answer.'"/>'.$answer_row->answer_title;
-				 $return .='</li>';
-				 $return .='</ul>';
-				 }
-			}
+				 $return .='</a>';
+					 }
 			
 			
+		   $return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';
+		}			
 		return $return;
 	}
 	

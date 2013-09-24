@@ -18,6 +18,7 @@
 
 	<positions>
 		<position>top</position>
+		<position>right</position>
 		<position>left</position>
 		<position>user-1</position>
 		<position>user-2</position>

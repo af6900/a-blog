@@ -2,18 +2,21 @@
 class box_top_article extends CI_Model
 {
 	public function initialize(){
-		$this->db->cache_off();
+		
 		$articlevisit = $this->lib_database->limit('article',array('visit >='=>1),7,NULL,'visit','DESC');
-		$return = '<div class="boxTitle">بهترین نوشته ها</div>';
-		$return .= '<ul class="UlLeftMenu">';
-		foreach($articlevisit as $row){
-			$return .= '<li  class="LiRightMenu">';
-			$return .= '<a href="'.site_url("summary").'/'.
-			$row->id.'">'.$row->title.'('.$row->visit.')';
-
-			$return .= '</a></li>';
-		}
-		$return .= '</ul>';
+		   	$return = '<div class="panel panel-default text-right dir-rtl">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">بهترین نوشته ها</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";
+			foreach ($articlevisit as $row){
+				$return .="<a class='list-group-item' href='".site_url('summary'.'/'.str_replace(' ','-',urldecode($row->title)))."'>"
+					.$row->title.'<span class="badge pull-left">'.$row->visit .'</span>'."</a>";			
+				}
+			$return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';		
 		
 		return $return;
 	}

@@ -4,110 +4,84 @@
 *	www.a-blog.ir
 * 	template helper v 1.0.0 beta
 *	@author  Afshin Nj 
+* 	qr helper
 */
-function qr_email($email = NULL, $subject = NULL, $text = NULL)
+if(! function_exists('qr_email')){
+	function qr_email($email = NULL, $subject = NULL, $text = NULL)
+	{
+			 $CI =& get_instance();
+			 $url = 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&choe=UTF-8&chl=mailto:'.$email.':'.$subject.':'.$text.'';
+			 echo '<img class="img-rounded" src="'.$url.'">';	
+	}
+}/* qr email*/   
+
+
+
+
+
+if(! function_exists('qr_text')){
+	
+	function qr_text($text = NULL)
+	{
+		 $CI =& get_instance();
+		 $url = 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&choe=UTF-8&chl='.$text.'';
+		 echo '<img class="img-rounded" src="'.$url.'">';		
+	}
+
+}
+/* qr_text*/
+
+
+
+
+
+
+if(! function_exists('qr_number')){
+	
+	function qr_number($number = NULL)
+		{
+				 $CI =& get_instance();
+				 $url = 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&choe=UTF-8&chl=tel:'.$number.'';
+				 echo '<img class="img-rounded" src="'.$url.'">';	 
+		
+		}
+			
+	}
+/* qr_number*/
+
+
+
+
+
+if(! function_exists('qr_sms')){
+	
+	function qr_sms($number = NULL, $text = NULL)
+	{
+		 $CI =& get_instance();
+		 $url = 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&choe=UTF-8&chl=smsto:'.$number.':'.$text.'';
+		 echo '<img class="img-rounded" src="'.$url.'">';
+	}
+}
+	
+/* qr_Sms*/
+
+
+
+
+
+
+
+
+if(! function_exists('qr_url'))
 {
-  
-$CI =& get_instance();
-?>
-<script src="<?php echo site_url('assets/admin/js/jquery.classyqr.js')?>"></script>
-<script language="javascript" type="text/javascript">
-	$(document).ready(function() {
-		$('#qrEmail').ClassyQR({
-			size:'100',
-			create: true,
-			type: 'email',
-			email: '<?php echo $email;?>',
-			subject: '<?php echo $subject;?>',
-			text: '<?php echo $text?>'
-		});
-	});
-</script>
-<div id="qrEmail"></div>
-<?php  
-}/* qr emial*/   
-
-
-function qr_text($text = NULL)
-{
-$CI =& get_instance();
-?>
-<script src="<?php echo site_url('assets/admin/js/jquery.classyqr.js')?>"></script>
-<script language="javascript" type="text/javascript">
-	$(document).ready(function() {
-		$('#qrText').ClassyQR({
-			size:'100',
-			create: true,
-			type: 'text',
-			text: '<?php echo $text;?>'
-		});
-	});
-</script>
-<div id="qrText"></div>	
-<?php	
-}/* qr_text*/
-
-
-function qr_number($number = NULL)
-{
-$CI =& get_instance();
-?>
-<script src="<?php echo site_url('assets/admin/js/jquery.classyqr.js')?>"></script>
-<script language="javascript" type="text/javascript">
-	$(document).ready(function() {
-		$('#qrNumber').ClassyQR({
-			size:'100',
-			create: true,
-			type: 'call',
-			number: '<?php echo $number;?>'
-		});
-	});
-</script>
-<div id="qrNumber"></div>
-
-<?php	
-}/* qr_number*/
-
-function qr_sms($number = NULL, $text = NULL)
-{
-$CI =& get_instance();
-?>
-<script src="<?php echo site_url('assets/admin/js/jquery.classyqr.js')?>"></script>
-<script language="javascript" type="text/javascript">
-	$(document).ready(function() {
-		$('#qrSms').ClassyQR({
-			size:'100',
-			create: true,
-			type: 'sms',
-			number: '<?php echo $number?>',
-			text: '<?php echo $text?>'
-		});
-	});
-</script>
-<div id="qrSms"></div>	
-<?php	
-}/* qr_Sms*/
-
-
-
-function qr_url($url = NULL)
-{
-$CI =& get_instance();
-?>
-<script src="<?php echo site_url('assets/admin/js/jquery.classyqr.js')?>"></script>
-<script language="javascript" type="text/javascript">
-	$(document).ready(function() {
-		$('#qrUrl').ClassyQR({
-			size:'100',
-			create: true,
- 			type: 'url',
-            url: '<?php echo $url?>'
-		});
-	});
-</script>
-<div id="qrUrl"></div>	
-<?php	
-}/* qr_Sms*/
+	function qr_url($url = NULL)
+	{
+		 $CI =& get_instance();
+		 $url = 'http://chart.apis.google.com/chart?cht=qr&chs=100x100&choe=UTF-8&chl='.$url.'';
+		 echo '<img class="img-rounded" src="'.$url.'">';
+	
+	}
+}/* qr_url*/
 
 
 

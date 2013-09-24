@@ -1,0 +1,85 @@
+/* CSS Document */
+@font-face {
+  font-family: 'BYekan';
+  src: url('fonts/BYekan.eot?#') format('eot'),  /* IE6–8 */
+url('fonts/BYekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+url('fonts/BYekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+@font-face {
+  font-family: 'BKoodakBold';
+  src: url('fonts/BKoodakBold.eot?#') format('eot'),  /* IE6–8 */
+url('fonts/BKoodakBold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+url('fonts/BKoodakBold.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
+body{
+	padding-top:20px;
+	padding-bottom:50px;
+
+	}
+.container{
+	background :url(../images/bg.png) !important;
+	border-radius:3px !important;
+	border:1px solid #CCC;
+	}	
+.carousel{
+	margin-bottom:10px !important;
+	border-radius:5px !important;
+	}
+.carousel img{
+	border-radius:5px !important;
+	}	
+.panel-title{
+	font-family: BYekan, Arial, Helvetica, sans-serif !important;
+	}	
+.panel-footer{
+	font-family: BKoodakBold, Arial, Helvetica, sans-serif !important;
+	}
+.list-group-item{
+	font-family: BKoodakBold, Arial, Helvetica, sans-serif !important;
+	}
+.panel-body p{
+	font-family: BKoodakBold, Arial, Helvetica, sans-serif !important;
+	}
+.nav a{
+	font-family: BYekan, Arial, Helvetica, sans-serif !important;
+	}
+.navbar-nav {
+	font-family: BKoodakBold, Arial, Helvetica, sans-serif !important;
+	}	
+.dir-rtl{
+	direction:rtl !important;
+	}				
+.dir-ltr{
+	direction:ltr !important;
+	}
+.BKoodakBold{
+	font-family: BKoodakBold, Arial, Helvetica, sans-serif !important;
+	}
+.BYekan{
+	font-family: BYekan, Arial, Helvetica, sans-serif !important;
+	}
+.facebook{
+	background-image:url(../images/fb.png);
+	padding:3px 15px 3px 15px !important;
+	}
+.ticker{
+	margin:0 !important;
+	}	
+.ticker-title{
+	width:70px !important; 
+	}
+.status{
+	height:40px !important;
+	font-size:14px !important;
+	border:1px solid #CCC;
+	box-shadow:none !important;
+	}			
+.communique{
+	border:1px solid #CCC;
+	}
+.author{
+	border:1px solid #CCC;
+	}
+.comment{
+	border:1px solid #CCC;
+	}			

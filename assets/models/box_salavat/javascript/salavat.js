@@ -1,15 +1,16 @@
-// JavaScript Document
 $(document).ready(function(e) {
-	   $.ajax({
+    	   $.ajax({
 		   type:'GET',
 			url:base_url+"ajax/salavat",
 			dataType:"json",
 			 success: function(data){
-				 $('.salavat').html(data);
+				 $('.divSalavat').html(data);
 				 
 				 }
 		 });
-	 $('#salavat').click(function(){
+		 
+		 
+		$('#salavat').click(function(){
 		 alert('اللَّهُمَّ صَلِّ عَلَى مُحَمَّدٍ وآلِ مُحَمَّدٍ وعَجِّلْ فَرَجَهُمْ');
 		 var salavat = 1;
 		 $.ajax({
@@ -18,9 +19,8 @@ $(document).ready(function(e) {
 				data:{'salavat' : salavat},
 				dataType:"json",
 				 success: function(data){
-					 $('.salavat').html(data);
+					 $('.divSalavat').html(data);
 					 }
 			 });
 		 });
-//---------------------------------------------------
-    });
+});

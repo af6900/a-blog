@@ -74,7 +74,7 @@
 	display: block;
 }
 .ticker-controls li.jnt-play-pause {
-	background-image: url('../../../ablog/assets/images/controls.png');
+	background-image: url('file:///C|/xampp/templates/ablog/assets/images/controls.png');
 	background-position: 32px 16px;
 }
 .ticker-controls li.jnt-play-pause.over {
@@ -84,7 +84,7 @@
 	background-position: 32px 0px;
 }
 .ticker-controls li.jnt-play-pause.paused {
-	background-image: url('../../../ablog/assets/images/controls.png');	
+	background-image: url('file:///C|/xampp/templates/ablog/assets/images/controls.png');	
 	background-position: 48px 16px;
 }
 .ticker-controls li.jnt-play-pause.paused.over {
@@ -94,7 +94,7 @@
 	background-position: 48px 0px;
 }
 .ticker-controls li.jnt-prev {
-	background-image: url('../../../ablog/assets/images/controls.png');
+	background-image: url('file:///C|/xampp/templates/ablog/assets/images/controls.png');
 	background-position: 0px 16px;		
 }
 .ticker-controls li.jnt-prev.over {
@@ -104,7 +104,7 @@
 	background-position: 0px 0px;		
 }
 .ticker-controls li.jnt-next {
-	background-image: url('../../../ablog/assets/images/controls.png');	
+	background-image: url('file:///C|/xampp/templates/ablog/assets/images/controls.png');	
 	background-position: 16px 16px;	
 }
 .ticker-controls li.jnt-next.over {

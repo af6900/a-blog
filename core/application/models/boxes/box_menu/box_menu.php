@@ -5,31 +5,37 @@ class box_menu extends CI_Model
 		
 			$block = $this->lib_database->get_filde('block',array('name'=>$name),'id');
 			$position = $this->lib_database->get_filde('block',array('name'=>$name),'position');
-			$menu = $this->lib_database->get('menu',NULL,array('block'=>$block));
+			$menu = $this->lib_database->get('menu',NULL,array('block'=>$block),'id','DESC');
 			if($position == 'top'){
-				$return = "<ul>";
 				foreach ($menu as $row){
-					$return .= "<li>";
+					$return = "<li>";
 					$return .= "<a href=".site_url($row->link).">".$row->name."</a>";
 					$return .= "</li>";
+					echo $return;
 					}
-				$return .= "</ul>";
+				
 			}else{
-				$return = '<div class="boxTitle">'.$name.'</div>';
-				$return .= "<ul class='UlLeftMenu'>";
+				
+				$return = '<div class="panel panel-default text-right">';
+				$return .= '<div class="panel-heading">';
+				$return .= '<label class="panel-text">'.$name.'</label>';
+				$return .= '</div>';
+				$return .= '<div class="panel-body">';
+				$return .= "<div class='list-group'>";
 				foreach ($menu as $row){
-					$return .= "<li class='LiRightMenu'>";
-					$return .= "<a href=".site_url($row->link).">".$row->name."</a>";
-					$return .= "</li>";
+					$return .= "<a href='".site_url($row->link)."' class='list-group-item'>".$row->name."</a>";
 					}
-				$return .= "</ul>";				
+				$return .="</div>";					
+				$return .='</div>';
+				$return .= '</div>';
+				return $return;						
 				}
-		return $return;	
+
 	}
 	
 	public function model_install(){
 		/*
-		* نمونه کد ها برای شبیح سازی تگ های اچ تی ام ال
+		* نمونه کد ها برای شبیه سازی تگ های اچ تی ام ال
 		* text_value() = <input type="text" /> 
 		* textarea_value() = <textarea></textarea>
 		* select_option() = <select></select>

@@ -15,17 +15,11 @@ h2{font-size:10pt;padding:0px;margin:0px 0px 8px 0px}
 
 </style>
 
-<?php
-	shortcut_icon('system','favicon.ico');
-	apple_touch_icon('system','apple-touch-icon.png');
-	apple_touch_icon('system','apple-touch-icon-72x72.png');
-	apple_touch_icon('system','apple-touch-icon-114x114.png');
-?>
 </head>
 <body>
 
 <div id="content">
-<h2><img src="<?php assets('img/slash-button.png')?>" /> سایت غیرفعال است</h2>
+<h2><img src="<?php echo site_url('assets/images/slash-button.png')?>" /> سایت غیرفعال است</h2>
  <span><?php echo $OffDescription?></span>
 </div>
      

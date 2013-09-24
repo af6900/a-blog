@@ -16,13 +16,12 @@ class Ajax extends CI_Controller {
 	public function salavat()  
     {  
 		$item = $this->input->get('salavat');
-		$query = $this->model_boxes->configuration_kay('COUNT_SALAVAT');
+		$query = $this->boxes_model->configuration_kay('COUNT_SALAVAT');
     	$salavat = $item + $query;
 		$this->db->where('kay','COUNT_SALAVAT');
 		$up = array('value'=>$salavat);
 		$this->db->update('configuration',$up);
-		$this->db->cache_delete('ajax', 'salavat');
-		echo $this->model_boxes->configuration_kay('COUNT_SALAVAT');
+		$this->output->set_output(json_encode($this->boxes_model->configuration_kay('COUNT_SALAVAT')));
     }
 	public function show_votes(){
 		
@@ -61,7 +60,7 @@ class Ajax extends CI_Controller {
 		}
 		
 	public function validation_captcha(){
-	   	 echo  $this->ablog->match_captch($this->input->get('captcha',TRUE));
+	   	 echo  match_captch($this->input->get('captcha',TRUE));
 		}
 		
 	public function comment(){
@@ -70,13 +69,19 @@ class Ajax extends CI_Controller {
 		foreach($getResult as $row){
 			$id = $row->id;
 
-			if($articleId == $this->ablog->a_hash($id)){
+			if($articleId == encrypt($id)){
  			$data = array('id_article'   =>$id, 
 						  'contact_date' =>$this->input->get('date'),
 						  'user_name'    =>$this->input->get('name',TRUE),
 						  'user_email'   =>$this->input->get('email',TRUE),
 						  'comment'      =>$this->input->get('text',TRUE) );
-		comment_send_admin($this->input->get('name',TRUE),$this->input->get('email',TRUE),$this->input->get('text',TRUE),$this->input->get('author',TRUE));			  
+						  
+				comment_send_admin(
+						$this->input->get('name',TRUE),
+						$this->input->get('email',TRUE),
+						$this->input->get('text',TRUE),
+						$this->input->get('author',TRUE));	
+								  
 				$result = $this->db->insert('comment',$data);
 				echo $result;
 			}

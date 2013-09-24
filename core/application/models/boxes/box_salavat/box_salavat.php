@@ -2,12 +2,18 @@
 class box_salavat extends CI_Model
 {
 	public function initialize(){
-			$return = '<div class="boxTitle">صلوات شمار</div>';
-		    $return .= '<script language="javascript" src="'.base_url().'assets/models/box_salavat/javascript/salavat.js"></script>';
+		    $return = '<script language="javascript" src="'.site_url('assets/models/box_salavat/javascript/salavat.js').'"></script>';
+			$return .= '<div class="panel panel-default text-right">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">صلوات شمار</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
 		    $return .= '<center>';
-			$return .= "<img id='salavat' src= '".base_url()."assets/models/box_salavat/images/btn.png' alt='نوشته های یک مبتدی'/>";
+			$return .= "<img id='salavat' src= '".site_url('assets/models/box_salavat/images/btn.png')."' alt='نوشته های یک مبتدی'/>";
 			$return .= "</center>";
-		    $return .= "<div class='divSalavat'><span class='salavat'></span></div>";	
+			$return .= "<div><center><span class='badge divSalavat'></span></center></div>";						
+			$return .='</div>';
+			$return .= '</div>';
 		return $return;	
 	}
 	

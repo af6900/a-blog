@@ -1,13 +1,4 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
-function __autoload($classname) {
-	if (strpos($classname, 'CI_') !== 0) {
-		$file = APPPATH . 'libraries/' . $classname . '.php';
-		if (file_exists($file) && is_file($file)) {
-			@include_once($file);
-		}
-	}
-}
 /*
 |--------------------------------------------------------------------------
 | Base Site URL
@@ -22,7 +13,7 @@ function __autoload($classname) {
 | path to your installation.
 |
 */
-$config['base_url'] = 'blog';
+$config['base_url'] = '';
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -113,7 +104,7 @@ $config['enable_hooks'] = TRUE;
 | http://codeigniter.com/user_guide/general/creating_libraries.html
 |
 */
-$config['subclass_prefix'] = 'MY_';
+$config['subclass_prefix'] = 'AB_';
 
 
 /*
@@ -232,7 +223,7 @@ $config['cache_path'] = 'temporary/cache/';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = 'blog';
+$config['encryption_key'] = '047ebd890f28e3557a73c15cda4e2619';
 
 /*
 |--------------------------------------------------------------------------
@@ -256,7 +247,7 @@ $config['sess_cookie_name']		= 'session';
 $config['sess_expiration']		= 3600;
 $config['sess_expire_on_close']	= TRUE;
 $config['sess_encrypt_cookie']	= TRUE;
-$config['sess_use_database'] = FALSE;
+$config['sess_use_database'] = TRUE;
 $config['sess_table_name']		= 'sessions';
 $config['sess_match_ip']		= TRUE;
 $config['sess_match_useragent']	= TRUE;
@@ -364,6 +355,8 @@ $config['rewrite_short_tags'] = TRUE;
 |
 */
 $config['proxy_ips'] = '';
+
+
 
 
 /* End of file config.php */

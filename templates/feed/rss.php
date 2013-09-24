@@ -5,14 +5,14 @@
     <title><![CDATA[<?php echo $Site_Title?>]]></title>
     <link><![CDATA[<?php echo $Site_Url?>]]></link>
     <description><![CDATA[<?php echo $Site_Description?>]]></description>
-	<? foreach($posts as $row):?>
+	<?php foreach($posts as $row){?>
     <item>
-      <title><![CDATA[<?=$row->title?>]]></title>
-      <link><![CDATA[<?=base_url().'site/summary/'.$row->id?>]]></link>
+      <title><![CDATA[<?php echo strip_tags($row->title);?>]]></title>
+      <link><![CDATA[<?php echo site_url('summary'.'/'.$row->id)?>]]></link>
       <description>
-        <![CDATA[<?=$row->summary?>]]></description>
-      <pubDate><?=$row->date?></pubDate>
+        <![CDATA[<?php echo strip_tags($row->summary);?>]]></description>
+      <pubDate><?php echo $row->date?></pubDate>
     </item>
-    <? endforeach ?>
+    <?php } ?>
   </channel>
 </rss>

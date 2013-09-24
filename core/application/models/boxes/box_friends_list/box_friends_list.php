@@ -3,17 +3,24 @@ class box_friends_list extends CI_Model
 {
 	public function initialize(){
 
-			$count = $this->model_boxes->configuration_kay('COUNT_FRIEND_LIST');
+			$count = $this->boxes_model->configuration_kay('COUNT_FRIEND_LIST');
 			
-		   $friends = $this->lib_database->limit('friends',NULL, $count); 
-		    $return = '<div class="boxTitle">لیست دوستان</div>';
-		    $return .= "<ul class='UlLeftMenu'>";
+		   $friends = $this->lib_database->limit('friends',NULL, $count);
+		   	$return = '<div class="panel panel-default text-right dir-rtl">';
+			$return .= '<div class="panel-heading">';
+			$return .= '<label class="panel-text">لیست دوستان</label>';
+			$return .= '</div>';
+			$return .= '<div class="panel-body">';
+			$return .= "<div class='list-group'>";
 			foreach ($friends as $row){
-				$return .= "<li class='LiRightMenu'>";
-				$return .= "<a href=".$row->link.">".$row->name."</a>";
-				$return .="</li>";
+				$return .= "<a href='".$row->link."' class='list-group-item'>".$row->name."</a>";
 				}
-			$return .="</ul>";
+			$return .="</div>";					
+			$return .='</div>';
+			$return .= '</div>';
+		
+			
+			
 		return $return;	
 	}
 	
