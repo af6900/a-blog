@@ -1,18 +1,25 @@
-<link rel="stylesheet" type="text/css" href="/blog/core/application/views/ablog/assets/style/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="/blog/core/application/views/ablog/assets/style/bootstrap/css/bootstrap-theme.min.css">
-<div class="panel panel-default text-right dir-rtl" style="margin-bottom:80px;">
+<link rel="stylesheet" type="text/css" href="/blog/templates/ablog/assets/style/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/blog/templates/ablog/assets/style/bootstrap/css/bootstrap-theme.min.css">
+<?php add_javascript('like.js'); ?>
+<div class="panel panel-default text-right dir-rtl" style="margin-bottom:30px;">
 	<div class="panel-heading">
 	 	<h3 class="panel-title "><?php echo $title?></h3>
      </div>
-     <div class="panel-body">
+     <div class="panel-body BHoma">
 	 	<?php echo $summary?> <?php echo $fullText?>
     </div>
+    <span><?php qr_url($url);?> </span>
     <div class="panel-footer">
-      <label><?php echo $date?></label>
-        <label class="pull-left" style="margin-right:20px">
+        <label><?php echo $date?></label>
+        <label class="pull-left" style="margin-right:20px; margin-top:4px;">
          		<?php echo facebook($title)?>
-         </label>
-      <span class="pull-left"><?php qr_url($url);?> </span>
+        </label>
+        <div class="like">
+            <span class="glyphicon glyphicon-plus-sign"></span>
+             <span class="badge count"><?php echo $visit; ?></span>
+        	<span class="glyphicon glyphicon-minus-sign"></span>
+           
+        </div>
     </div>
 </div>
 

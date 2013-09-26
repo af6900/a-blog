@@ -122,7 +122,7 @@ class article extends AB_Controller {
 		$this->db->cache_delete('section', 'index');
 		$data['section'] = $this->section_model->get();
 		$sectionCout = $this->section_model->count_db();
-		$data['sectionCout'] = $this->ablog->PageCount($sectionCout);
+		$data['sectionCout'] = PageCount($sectionCout);
 		$this->out('article','section',$data);
  	}
 	public function save_section(){

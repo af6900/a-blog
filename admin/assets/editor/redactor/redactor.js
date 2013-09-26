@@ -3325,7 +3325,8 @@ var RLANG = {
 				var html = '';
 				if (link !== true)
 				{
-					html = '<p><img src="' + json.filelink + '" /></p>';
+					
+					html = '<p><img class="img-responsive"  src="' + json.filelink + '" /></p>';
 				}
 				else
 				{

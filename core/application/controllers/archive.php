@@ -13,7 +13,7 @@ class archive extends AB_Controller {
 	    $total_rows 		= $this->section_model->count_db();
 		$section		   = $this->uri->segment(2);
 		$data['page']	  = NULL; //$this->PageCount($total_rows, 'section', $section, '4' );
-		$data['article']   = $this->article_model->get_by(array('archiveDate'=>$section));
+		$data['article']   = $this->lib_database->get('article','result',array('archiveDate'=>$section));
 		$this->template->out($data);
 		
 

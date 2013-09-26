@@ -10,7 +10,7 @@
             </h3>
         </div>
         
-    	<div class="panel-body">
+    	<div class="panel-body BKoodakBold">
        	 <?php echo $row->summary; ?>
         </div>
 

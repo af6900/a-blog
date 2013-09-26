@@ -23,6 +23,36 @@ class Ajax extends CI_Controller {
 		$this->db->update('configuration',$up);
 		$this->output->set_output(json_encode($this->boxes_model->configuration_kay('COUNT_SALAVAT')));
     }
+	
+	public function like()
+	{
+		$action = $this->input->get('action',TRUE);
+		$get_id = $this->input->get('id',TRUE);
+		
+		$article = $this->lib_database->get('article');
+		
+		foreach($article as $row){
+	
+			if($get_id == encrypt($row->id)){
+				
+				if($action == 'plus'){
+					$this->lib_database->save('article',array('visit' => $row->visit + 1),array('id' => $row->id));
+					$this->output->set_output(json_encode($row->visit + 1));					
+					}
+					
+				if($action == 'minus'){
+					$this->lib_database->save('article',array('visit' => $row->visit - 1),array('id' => $row->id));
+					$this->output->set_output(json_encode($row->visit - 1));					
+					}
+				
+				}
+				
+				
+			}
+	}
+	
+	
+	
 	public function show_votes(){
 		
 		}

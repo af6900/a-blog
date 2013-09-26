@@ -66,5 +66,8 @@ $route['summary/(:any)'] = "summary";
 $route['off'] = "off";
 
 $route['sitemap\.xml'] = "seo";
+
+$route['author/(:any)'] = 'author';
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

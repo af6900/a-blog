@@ -26,9 +26,11 @@ class summary extends AB_Controller {
 						 'fullText'=>$row->fulltext,
 						 'author'=>$row->author,
 						 'date'=>$row->date,
-						 'showComment' => $row->comment);
+						 'showComment' => $row->comment,
+						 'visit' => $row->visit);
 			
 		}
+		
 		$data['url'] = site_url('summary'.'/'.$id); 
 		$user = $this->lib_database->get('admin_user',NULL,array('name'=>$row->author));
 		foreach($user as $rows){

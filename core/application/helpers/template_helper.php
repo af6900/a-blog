@@ -58,7 +58,7 @@ if( !function_exists('get_description')){
 					break;
 				case 'summary';
 					$title = str_replace('-',' ',urldecode($CI->uri->segment(2)));
-					echo  strip_tags($CI->lib_database->get_filde('article',array('title'=>$title),'summary'));
+					echo htmlspecialchars(strip_tags($CI->lib_database->get_filde('article',array('title'=>$title),'summary')));
 					break;
 				default:
 					echo strip_tags($CI->lib_database->get_filde('web_config',array('id'=>1),'Description'));
@@ -139,6 +139,11 @@ function contain(){
 	if($contain == 'index' or $contain == '' or $contain == 'site'){
 		$contain = 'contain';
 		}
+	if ( ! file_exists("templates/".$CI->template->get_template_name()."/".$contain.".php"))
+		{
+			$contain = 'contain';	
+     	}
+		
 	return($CI->load->view($CI->template->get_template_name()."/".$contain.""));
 	}
 

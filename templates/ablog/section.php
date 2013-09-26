@@ -1,14 +1,28 @@
-<?php  foreach($article as $row):?>
-	<div class="ContainTitle"><a href="<?php echo $row->title?>"><?php echo $row->title?></a></div>
-        <div class="article">
-         <?php echo $row->summary?>
+<?php foreach($article as $row):?>
+	<div class="panel panel-default text-right dir-rtl">
+    	<div class="panel-heading">
+        	<h3 class="panel-title">
+    		<?php echo summary($row->title,$row->title);?>
+
+            </h3>
         </div>
-    <div class="ContainFooter">
-		 <label class="author">نویسنده : <?php echo $row->author?></label>
-          <label class="date"><?php echo $row->date?></label>          
-          <?php  if($row->fulltext != ''):?>
-              <label class="summary"><a href="<?php echo base_url();?>summary/<?php echo $row->id?>">ادامه مطلب</a></label>
-          <?php  endif ?>
-             <label class="lblcomment"><a href="<?php echo base_url();?>summary/<?php echo $row->id?>">نظر دهید</a></label>
+        
+    	<div class="panel-body">
+       	 <?php echo $row->summary; ?>
+        </div>
+
+        <div class="panel-footer">
+           <span class="label label-info" >
+			   <?php
+                 echo $this->lib_database->get_filde('article_section',array('id'=>$row->sectionId),'title')
+               ?>
+           </span>
+         <label class="pull-left">
+            <?php echo summary($row->title,'دیدگاه');?>
+         </label>
+          <?php if($row->fulltext != ''):?>
+              <label class="pull-left"><?php echo summary($row->title,'ادامه مطلب');?></label>
+          <?php endif ?>
+        </div>
     </div>
- <?php  endforeach ?> 
+<?php endforeach ?> 

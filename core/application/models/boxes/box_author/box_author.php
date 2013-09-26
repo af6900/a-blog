@@ -11,7 +11,7 @@ class box_author extends CI_Model
 			$return .= '<div class="panel-body">';
 			$return .= "<div class='list-group'>";
 			foreach ($author as $row){
-				$return .= "<a href='#' class='list-group-item'>".$row->author."</a>";
+				$return .= "<a href='".site_url('author/'.$row->author)."' class='list-group-item'>".$row->author."</a>";
 				}
 			$return .="</div>";					
 			$return .='</div>';

@@ -11,6 +11,12 @@ url('fonts/BYekan.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera
 url('fonts/BKoodakBold.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
 url('fonts/BKoodakBold.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
 }
+@font-face {
+  font-family: 'BHoma';
+  src: url('fonts/BHoma.eot?#') format('eot'),  /* IE6–8 */
+url('fonts/BHoma.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+url('fonts/BHoma.ttf') format('truetype');  /* Saf3—5, Chrome4+, FF3.5, Opera 10+ */
+}
 body{
 	padding-top:20px;
 	padding-bottom:50px;
@@ -37,9 +43,7 @@ body{
 .list-group-item{
 	font-family: BKoodakBold, Arial, Helvetica, sans-serif !important;
 	}
-.panel-body p{
-	font-family: BKoodakBold, Arial, Helvetica, sans-serif !important;
-	}
+
 .nav a{
 	font-family: BYekan, Arial, Helvetica, sans-serif !important;
 	}
@@ -58,6 +62,18 @@ body{
 .BYekan{
 	font-family: BYekan, Arial, Helvetica, sans-serif !important;
 	}
+.BHoma{
+	font-family: BHoma,Arial,Helvetica,sans-serif !important;
+	font-weight:normal;
+	}
+.panel-body{
+	font-size:15px;
+	}	
+.panel-body h4,h3,h2,h1,p{
+	font-family: BHoma,Arial,Helvetica,sans-serif !important;
+	font-weight:normal;
+	}
+			
 .facebook{
 	background-image:url(../images/fb.png);
 	padding:3px 15px 3px 15px !important;
@@ -75,11 +91,21 @@ body{
 	box-shadow:none !important;
 	}			
 .communique{
-	border:1px solid #CCC;
+	border:1px solid #CCC !important;
 	}
 .author{
-	border:1px solid #CCC;
+	border:1px solid #CCC !important;
 	}
 .comment{
-	border:1px solid #CCC;
-	}			
+	border:1px solid #CCC !important;
+	}
+.like{
+	width:64px;
+	height:30px;
+	float:left;
+	}
+.like
+.glyphicon-plus-sign ,
+.glyphicon-minus-sign{
+	cursor:pointer !important;
+	}					

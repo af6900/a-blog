@@ -9,7 +9,10 @@ class index extends AB_Controller {
 
     }
 	public function index(){
-        
+ 
+		if(isset($_SERVER['HTTP_REFERER']) and ! empty($_SERVER['HTTP_REFERER'])){
+		    //$this->lib_database->save('referer',array('address'=>$_SERVER['HTTP_REFERER']));
+		}
 		$total_rows      = $this->lib_database->count_all('article');
 		
 		
@@ -19,6 +22,8 @@ class index extends AB_Controller {
 		$where = "archive ='0' and publish_up <= '".trim(adate(4).date('His'))."' and publish_down >= '".trim(adate(4))."'";
 		$data['article'] = $this->lib_database->limit('article',$where,5,$count,'publish_up','DESC');
 		$this->template->out($data);
+				
+
 
 	}
 }

@@ -3,7 +3,7 @@ class box_top_article extends CI_Model
 {
 	public function initialize(){
 		
-		$articlevisit = $this->lib_database->limit('article',array('visit >='=>1),7,NULL,'visit','DESC');
+		    $articlevisit = $this->lib_database->limit('article',array('visit >='=>1),7,NULL,'visit','DESC');
 		   	$return = '<div class="panel panel-default text-right dir-rtl">';
 			$return .= '<div class="panel-heading">';
 			$return .= '<label class="panel-text">بهترین نوشته ها</label>';
@@ -11,7 +11,7 @@ class box_top_article extends CI_Model
 			$return .= '<div class="panel-body">';
 			$return .= "<div class='list-group'>";
 			foreach ($articlevisit as $row){
-				$return .="<a class='list-group-item' href='".site_url('summary'.'/'.str_replace(' ','-',urldecode($row->title)))."'>"
+				$return .="<a class='list-group-item' href='".site_url('summary'.'/'.rawurlencode(str_replace(' ','-',urldecode($row->title))))."'>"
 					.$row->title.'<span class="badge pull-left">'.$row->visit .'</span>'."</a>";			
 				}
 			$return .="</div>";					
