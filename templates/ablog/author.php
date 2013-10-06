@@ -16,6 +16,9 @@
             <li> <?php echo $mobile;?>   <span class="glyphicon glyphicon-phone"></span></li>
             <li> <?php echo $email;?>   <span class="glyphicon glyphicon-envelope"></span></li>
         </ul>
-       
+        <?php echo social_network($yahoo,$twitter,$facebook,$instagram)?>
+    </div>
+    <div class="panel-footer text-right dir-rtl BKoodakBold" style="line-height:30px; text-align:justify">
+    	<?php echo $about;?> 
     </div>
 </div>

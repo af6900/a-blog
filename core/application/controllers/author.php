@@ -18,6 +18,11 @@ class author extends AB_Controller {
 			$data['mobile'] = $row->UserMobile;
 			$data['email'] = $row->UserEmail;
 			$data['UserAvatar'] = $row->UserAvatar;
+			$data['yahoo'] = $row->yahoo;
+			$data['facebook'] = $row->facebook;
+			$data['twitter'] = $row->twitter;
+			$data['instagram'] = $row->instagram;
+			$data['about'] = $row->about;
 			}
 		$this->template->out($data);
 	}

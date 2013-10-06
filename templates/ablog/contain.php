@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="/blog/admin/assets/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/blog/admin/assets/bootstrap/css/bootstrap-theme.min.css">
 <?php echo status();?>
 <?php echo communique(); ?>
   
@@ -6,12 +8,18 @@
     	<div class="panel-heading">
         	<h3 class="panel-title">
     		<?php echo summary($row->title,$row->title);?>
-
             </h3>
         </div>
         
-    	<div class="panel-body BKoodakBold">
+    	<div class="panel-body BHoma" style="text-align:justify">
+   
+        
+		<?php if($row->image !=''):?>
+			<?php echo article_image($row->image,$row->title);?>
+         <?php endif ?>
+         
        	 <?php echo $row->summary; ?>
+         
         </div>
 
         <div class="panel-footer">

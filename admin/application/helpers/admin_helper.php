@@ -371,3 +371,28 @@ function edit_box($id){
     		  return $count;	
 	
 		}
+		
+function ajax_upload($path = NULL){
+	?>
+	<form id="upload" method="post" action="ajaxUpload" enctype="multipart/form-data">
+    		<input type="hidden" name="path" value="<?php echo $path; ?>">
+			<div id="drop">
+				Drop Here
+
+				<a>Browse</a>
+				<input type="file" name="upl" />
+			</div>
+
+			<ul>
+				<!-- The file uploads will be shown here -->
+			</ul>
+		</form>
+        
+	    <link href="<?php echo site_url('assets/upload/css/style.css')?>" rel="stylesheet" />
+		<script src="<?php echo site_url('assets/upload/js/jquery.knob.js')?>"></script>
+        <script src="<?php echo site_url('assets/upload/js/jquery.ui.widget.js')?>"></script>
+	    <script src="<?php echo site_url('assets/upload/js/jquery.iframe-transport.js')?>"></script>
+        <script src="<?php echo site_url('assets/upload/js/jquery.fileupload.js')?>"></script>
+  		<script src="<?php echo site_url('assets/upload/js/script.js')?>"></script>
+	 <?php
+	}		

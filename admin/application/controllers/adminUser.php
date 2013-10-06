@@ -11,12 +11,18 @@ class adminUser extends AB_Controller {
 		$data['msg'] = NULL;
 
 		if($this->admin_users_model->validation() == TRUE){
-			 $avatar = $this->file->upload('./upload/avatar','gif|jpg|png');
-			 $save=(array('name'=>$this->input->post('name',TRUE),'LoginName'=> trim($this->input->post('LoginName',TRUE)),
+			$avatar = $this->file->upload('../upload/avatar/','gif|jpg|png');
+			 $save=(array('name'=>$this->input->post('name',TRUE),
+			 	  			'LoginName'=> trim($this->input->post('LoginName',TRUE)),
 							'LoginPass'=>encrypt(trim($this->input->post('LoginPass'))),
 							'UserEmail'=>trim($this->input->post('UserEmail',TRUE)),
 							'UserAvatar'=>$avatar,
-							'UserMobile'=>trim($this->input->post('mobile',TRUE))));
+							'UserMobile'=>trim($this->input->post('mobile',TRUE)),
+							'yahoo'=>trim($this->input->post('yahoo',TRUE)),
+							'facebook'=>trim($this->input->post('facebook',TRUE)),
+							'twitter'=>trim($this->input->post('twitter',TRUE)),
+							'instagram'=>trim($this->input->post('instagram',TRUE)),
+							'about'=>trim($this->input->post('about',TRUE))));
 				
 				$result = $this->admin_users_model->save($save);
 				if($result){
@@ -28,13 +34,12 @@ class adminUser extends AB_Controller {
 			}
 		
 		$data['user'] = $this->admin_users_model->get();
-		$this->db->cache_delete('admin-users-list', 'index');
 		$this->out('adminUser','newUser',$data);	
 		}
 	//=== delete User Code ===\\	
 	public function delete(){
 		$image = $this->admin_users_model->get_one(array('id'=>$this->uri->segment(2)),'UserAvatar');
-		@unlink('./images/avatar/'.$image);
+		@unlink('../upload/avatar/'.$image);
 		$this->admin_users_model->Delete($this->uri->segment(2));
 		redirect('admin-users-list');	
 
@@ -54,6 +59,11 @@ class adminUser extends AB_Controller {
 				$data['email'] = $row->UserEmail;
 				$data['mobile'] = $row->UserMobile;
 				$data['avatar'] = $row->UserAvatar;
+			    $data['yahoo']  = $row->yahoo;
+				$data['twitter'] = $row->twitter;
+				$data['facebook'] = $row->facebook;
+				$data['instagram'] = $row->instagram;	
+				$data['about'] = $row->about;			
 				}
 			$this->out('adminUser','editUser',$data);	
 			} else{
@@ -62,26 +72,30 @@ class adminUser extends AB_Controller {
 		}
 		//=== Update User Code ===\\
 	public function update(){
-		$avatar = $this->file->upload('./images/avatar','gif|jpg|png');
-		$name = $this->input->post('name',TRUE);
-		$loginName   = $this->input->post('LoginName',TRUE);
-		$pass   = encrypt($this->input->post('LoginPass'));
-		$email  = $this->input->post('UserEmail',TRUE);
-		$mobile  = $this->input->post('mobile',TRUE);
+		$avatar = $this->file->upload('../upload/avatar/','gif|jpg|png');
 			if($avatar != NULL){
-				$data=(array('name' => $name, 
-							'LoginName'=>$loginName,
-							'LoginPass'=>$pass,
-							'UserEmail'=>$email,
+ 					$data=(array('name'=>$this->input->post('name',TRUE),
+			 	  			'LoginName'=> trim($this->input->post('LoginName',TRUE)),
+							'LoginPass'=>encrypt(trim($this->input->post('LoginPass'))),
+							'UserEmail'=>trim($this->input->post('UserEmail',TRUE)),
 							'UserAvatar'=>$avatar,
-							'UserMobile'=>$mobile));
+							'UserMobile'=>trim($this->input->post('mobile',TRUE)),
+							'yahoo'=>trim($this->input->post('yahoo',TRUE)),
+							'facebook'=>trim($this->input->post('facebook',TRUE)),
+							'twitter'=>trim($this->input->post('twitter',TRUE)),
+							'instagram'=>trim($this->input->post('instagram',TRUE)),
+							'about'=>trim($this->input->post('about',TRUE))));
 			} else {
-				$data=(array(
-							'name' => $name, 
-							'LoginName'=>$loginName,
-							'LoginPass'=>$pass,
-							'UserEmail'=>$email,
-							'UserMobile'=>$mobile));
+ 				$data=(array('name'=>$this->input->post('name',TRUE),
+			 	  			'LoginName'=> trim($this->input->post('LoginName',TRUE)),
+							'LoginPass'=>encrypt(trim($this->input->post('LoginPass'))),
+							'UserEmail'=>trim($this->input->post('UserEmail',TRUE)),
+							'UserMobile'=>trim($this->input->post('mobile',TRUE)),
+							'yahoo'=>trim($this->input->post('yahoo',TRUE)),
+							'facebook'=>trim($this->input->post('facebook',TRUE)),
+							'twitter'=>trim($this->input->post('twitter',TRUE)),
+							'instagram'=>trim($this->input->post('instagram',TRUE)),
+							'about'=>trim($this->input->post('about',TRUE))));
 				}
 	     	$id = $this->input->post('id',TRUE);
 			$result = $this->admin_users_model->save($data,$id);
@@ -95,7 +109,7 @@ class adminUser extends AB_Controller {
 		
 		
 		public function listUser(){
-			$this->db->cache_delete('admin-user-list', 'index');
+
 			$data['user'] = $this->lib_database->get('admin_user');
 			$this->out('adminUser','list',$data);
 			}

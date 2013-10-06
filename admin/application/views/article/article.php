@@ -4,7 +4,7 @@
       <div class="panel-heading">
         <h3 class="panel-title">ثبت مطلب جدید</h3>
       </div>
-      <?php echo form_open('article','class="form-inline"');?>
+      <?php echo form_open_multipart('article','class="form-inline"');?>
       <div class="panel-body">
          <div class="clearfix"></div>
 			<?php echo validation_errors(); ?>
@@ -48,6 +48,10 @@
             <?php echo form_textarea('fulltext','','class="redactor_content form-control"')?>
           </div>
         
+        <div class="form-group col-md-12">
+        	<label for="fulltext">عکس</label>
+            <input type="file" name="userfile" size="30"/>
+        </div>
       </div>
       <div class="panel-footer">
    		<div class="text-left">      

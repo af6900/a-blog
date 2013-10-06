@@ -3,6 +3,7 @@
     	<div class="panel panel-default">
     	<div class="panel-heading">
         	<h3 class="panel-title">ثبت کاربر</h3>
+            
         </div>
        <div class="well-sm"><span class="label label-danger">پر کردن همه فیلد ها الزامی است</span></div>
        <?php echo form_open_multipart('admin-user-update');?>
@@ -11,11 +12,11 @@
 		<div class="col-md-6 pull-right">
              <div class="form-group">
                 <label for="name">نام</label>
-                <input type="test" value="<?php echo $name?>" class="form-control" name="name" id="name" placeholder="نام خود را وارد کنید" required="required" tabindex="1"  autofocus>
+                <input type="test" value="<?php echo $name?>" class="form-control" name="name" id="name" placeholder="نام خود را وارد کنید" required tabindex="1"  autofocus>
               </div>
              <div class="form-group">
                 <label for="userPassword">رمز عبور</label>
-                <input type="password" name="LoginPass" value="<?php echo form_error('LoginPass'); ?>" min="6" class="form-control" id="userPassword" placeholder="رمز عبور را وارد کنید" required="required" tabindex="3" >
+                <input type="password" name="LoginPass" value="<?php echo form_error('LoginPass'); ?>" min="6" class="form-control" id="userPassword" placeholder="رمز عبور را وارد کنید" required tabindex="3" >
                 <p class="help-block" >حداقل 6 کاراکتر باید وارد شود</p>
                 <p class="help-block" style="color:#F00">
                 <?php echo form_error('LoginPass'); ?>
@@ -39,7 +40,7 @@
               </div>
              <div class="form-group">
                 <label for="cUserPassword">تکرار رمز عبور</label>
-                <input type="password" name="LoginPassconf"  class="form-control" id="cUserPassword" placeholder="تکرار رمز عبور" required="required" tabindex="4">
+                <input type="password" name="LoginPassconf"  class="form-control" id="cUserPassword" placeholder="تکرار رمز عبور" required tabindex="4">
                 <p class="help-block">حداقل 6 کاراکتر باید وارد شود</p>
                 <p class="help-block" style="color:#F00">
                 <?php echo form_error('LoginPassconf'); ?>
@@ -53,20 +54,53 @@
                 </p>
               </div>
         </div>
+                <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputFile">آیدی یاهو</label>
+              <input type="text" name="yahoo" value="<?php echo $yahoo?>" class="form-control" id="email" placeholder="یاهو ایدی"  tabindex="7">
+            </div>
+        </div>
+        <div class="col-md-3">    
+            <div class="form-group">
+              <label for="exampleInputFile">فیس بوک</label>
+              <input type="text" name="facebook" value="<?php echo $facebook?>" class="form-control" id="email" placeholder="فیس بوک"  tabindex="8">
+            </div>
+         </div>
+         <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputFile">تویتر</label>
+              <input type="text" name="twitter" value="<?php echo $twitter?>" class="form-control" id="email" placeholder="تویتر"  tabindex="9">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+              <label for="exampleInputFile">اینستاگرام</label>
+               <input type="text" name="instagram" value="<?php echo $instagram ?>" class="form-control" id="email" placeholder="اینستاگرام" tabindex="10">
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+              <label for="exampleInputFile">عکس کاربر</label>
+              <input type="file" name="userfile" size="20"/>
+              <p class="help-block">از این برای نشان دادن عکس کاربر در زیر نوشته ها استفاده میشود.</p>  
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="form-group">
+              <label for="exampleInputFile">درباره من</label>
+              <textarea name="about" class="form-control"><?php echo $about?></textarea>
+            </div>
+        </div>
         <div class="col-md-6 text-left">
         	<?php if($avatar != ''):?>
-        	<img src="<?php echo site_url('upload/avatar/'.$avatar)?>" width="100" class="img-thumbnail"/>
+        	<img src="<?php echo site_url('../upload/avatar/'.$avatar)?>" width="100" class="img-thumbnail"/>
             <?php else:?>
             <img src="<?php echo site_url('assets/admin/img/avatar.jpg')?>" width="100" class="img-thumbnail"/>
             <?php endif?>
         </div>
-        <div class="col-md-6">
-       		 <div class="form-group">
-          <label for="exampleInputFile">عکس کاربر</label>
-          <input type="file" name="userfile" size="20"/>
-          <p class="help-block">از این برای نشان دادن عکس کاربر در زیر نوشته ها استفاده میشود.</p>
-        </div>
-        </div>
+        
        </div>
     	<div class="panel-footer text-left">
         <button type="submit" class="btn btn-primary">ذخیره</button>

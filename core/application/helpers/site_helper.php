@@ -44,14 +44,7 @@ if (!function_exists('get_ip_address'))
     }
 }
 
-if(!function_exists('facebook'))
-{
-	function facebook($title = NULL)
-	{
-		$url ="<a class='facebook' href='http://www.facebook.com/share.php?u=".site_url('summary?id='.str_replace(' ','-',urldecode($title)))."'></a>";
-		return $url; 
-	}
-}
+
 
 function status(){
 	    $CI =& get_instance();

@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../../../../assets/admin/bootstrap/css/bootstrap.min.css"/>
-<link rel="stylesheet" type="text/css" href="../../../../assets/admin/bootstrap/css/bootstrap-theme.min.css"/>
 <div class="container text-right">
 	<div class="row">
     	<div class="panel panel-default">
@@ -13,11 +11,11 @@
                   	<ul class="list-inline list-unstyled pull-right">
                     	<?php if($row->UserAvatar){
 						?>
-						<li><img width="100" src="<?php echo site_url('upload/avatar/'.$row->UserAvatar)?>" class="img-thumbnail" /></li>
+						<li><img width="100" src="<?php echo site_url('../upload/avatar/'.$row->UserAvatar)?>" class="img-thumbnail" /></li>
 						<?php
 							} else { 
 							?>
-                            <li><img width="100" src="<?php echo site_url('assets/admin/img/avatar.jpg')?>" class="img-thumbnail" /></li>
+                            <li><img width="100" src="<?php echo site_url('assets/img/avatar.jpg')?>" class="img-thumbnail" /></li>
                             <?php } ?>
                     </ul>
                     
@@ -28,6 +26,7 @@
                     </ul>
     			   <span class="pull-left" style="margin-right:30px;"><?php echo btn_delete('admin-user-delete/'.$row->id)?></span>
                    <span class="pull-left" style="margin-right:30px;"><?php echo btn_edit('admin-user-edit/'.$row->id)?></span>
+                   
                    <span class="pull-left" style="margin-right:30px;"><?php echo btn_email('admin-user-send-email/'.$row->id)?></span>
                   </li>
                 <?php endforeach?>

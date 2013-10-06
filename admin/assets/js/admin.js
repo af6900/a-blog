@@ -4,7 +4,10 @@ $(document).ready(function(e) {
 	$( "#tabs" ).tabs();
 
 	$('.datepicker').datepicker({});
-		
+	
+	$('.inputCommunique').datepicker({
+		dateFormat: 'yy/mm/dd'
+		});
 	
 	$( ".success" ).fadeIn(1000).delay(5000).fadeOut(3000);
 	

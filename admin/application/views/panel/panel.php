@@ -119,7 +119,7 @@
                  <div class="col-lg-6">
                        <div class="form-group text-right">
                         <div class="input-group">
-                          <input type="text" class="form-control text-right datepicker" id="endPublic" placeholder="پایان انتشار">
+                          <input type="text" class="form-control text-right inputCommunique" id="endPublic" placeholder="پایان انتشار">
                           <span class="input-group-addon glyphicon glyphicon-calendar"></span>
                         </div>
                         </div>
@@ -128,7 +128,7 @@
                  <div class="col-lg-6">
 				    <div class="form-group text-right">
                         <div class="input-group">
-                          <input type="text" class="form-control text-right datepicker" id="startPublic" placeholder="شروع انتشار">
+                          <input type="text" class="form-control text-right inputCommunique" id="startPublic" placeholder="شروع انتشار">
                           <span class="input-group-addon glyphicon glyphicon-calendar"></span>
                         </div>
                     </div>
@@ -136,7 +136,7 @@
                                
                 <div class="clearfix"></div>
                  <ul class="list-group" id="ulCommunique" style="margin-top:5px;">
-					<li class="list-group-item"><img src="<?php echo site_url('assets/admin/img/loader.gif')?>" width="16" height="16" /></li>
+					<li class="list-group-item"><img src="<?php echo site_url('assets/img/loader.gif')?>" width="16" height="16" /></li>
                 </ul>
 
         </div></div>
@@ -165,7 +165,7 @@
                
 			   <div class="clearfix"></div>
                <ul class="list-group" id="ulStatus" style="margin-top:5px;">
-					<li class="list-group-item"><img src="<?php echo site_url('assets/admin/img/loader.gif')?>" width="16" height="16" /></li>
+					<li class="list-group-item"><img src="<?php echo site_url('assets/img/loader.gif')?>" width="16" height="16" /></li>
                 </ul>
               <div style="" class="divPagination text-center">
                 <ul class="pagination pagination-sm">

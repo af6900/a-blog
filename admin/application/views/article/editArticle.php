@@ -49,7 +49,10 @@
             <label for="fulltext">ادامه مطلب</label>
             <?php echo form_textarea('fulltext',$fulltext,'class="redactor_content form-control"')?>
           </div>
-       
+          <div class="form-group col-md-12">
+        	<label for="fulltext">عکس</label>
+            <input type="file" name="userfile" size="30"/>
+        </div>
       </div>
       <div class="panel-footer">
    		<div class="text-left">      

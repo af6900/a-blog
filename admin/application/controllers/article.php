@@ -17,6 +17,7 @@ class article extends AB_Controller {
 		if($publish_down == ''){ $publish_down = 99999999;}
 		
 		if($this->article_model->validation() == TRUE){
+			$image = $this->file->upload('../upload/','gif|jpg|png');
 			$data = array('date' =>adate(),
 						  'author' => $this->session->userdata('name'),
 						  'title' => $this->input->post('title',TRUE),
@@ -25,7 +26,8 @@ class article extends AB_Controller {
 						  'summary'=> $this->input->post('summary',TRUE),
 						  'fulltext'=> $this->input->post('fulltext',TRUE),
 						  'publish_up'=> $publish_up.date('His'),
-						  'publish_down'=> $publish_down);
+						  'publish_down'=> $publish_down,
+						  'image'=>$image);
 			
 			
 			$result = $this->article_model->save($data);
@@ -61,6 +63,21 @@ class article extends AB_Controller {
 		if($publish_down == ''){ $publish_down = 99999999;}
 		
 		if($this->article_model->validation() == TRUE){
+			$image = $this->file->upload('../upload/','gif|jpg|png');
+				if($image !=''){
+						$data = array('date' =>adate(),
+						  'author' => $this->session->userdata('name'),
+						  'title' => $this->input->post('title',TRUE),
+						  'sectionId'=> $this->input->post('section',TRUE),
+						  'keywords'=> $this->input->post('keywords',TRUE),
+						  'summary'=> $this->input->post('summary',TRUE),
+						  'fulltext'=> $this->input->post('fulltext',TRUE),
+						  'publish_up'=> $publish_up.date('His'),
+						  'publish_down'=> $publish_down,
+						  'image'=>$image);
+				}
+				else
+				{
 						$data = array('date' =>adate(),
 						  'author' => $this->session->userdata('name'),
 						  'title' => $this->input->post('title',TRUE),
@@ -70,6 +87,7 @@ class article extends AB_Controller {
 						  'fulltext'=> $this->input->post('fulltext',TRUE),
 						  'publish_up'=> $publish_up.date('His'),
 						  'publish_down'=> $publish_down);
+				}
 			$result = $this->article_model->save($data,$this->input->post('id'));
 			redirect('article/success');
 	      }else{

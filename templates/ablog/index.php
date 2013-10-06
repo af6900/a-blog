@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="keywords" content="<?php get_keywords();?>">
 <meta name="description" content="<?php get_description();?>">
+<meta name="identifier-url" content="<?php echo site_url()?>" />
+<meta property="og:title" content="<?php get_web_title();?>"/>
+<meta property="og:site_name" content="<?php get_web_title();?>"/>
+
+		
+<link rel="author" href="https://plus.google.com/u/0/106438868198241890927"/>
 <title><?php get_web_title();?></title>
 
 <?php 
@@ -24,7 +30,6 @@
 ?>
 </head>
 <body>
-
     <div class="container ">
     	<div class="row well-sm">
 			<?php echo slider();?>
@@ -47,7 +52,7 @@
 
         </div>
     </div>
-
+<div id="chehre_blog_confirm" style="display:none">$2a$08$ihL0wSdQlOm3MQKVOoOBw.2AVcs/hnZt4CcsIJglUJ0nAhkMcC5QW</div> 
 </body>
 
 </html>

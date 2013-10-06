@@ -130,6 +130,9 @@ if (defined('ENVIRONMENT'))
 // END OF USER CONFIGURABLE SETTINGS.  DO NOT EDIT BELOW THIS LINE
 // --------------------------------------------------------------------
 
+
+define('ADMINPATH', 'admin'.'/');
+
 /*
  * ---------------------------------------------------------------
  *  Resolve the system path for increased reliability

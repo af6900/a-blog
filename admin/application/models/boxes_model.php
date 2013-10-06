@@ -1,7 +1,7 @@
 <?php
 class boxes_model extends AB_Model{
 	
-	//model_box v 1 beta
+
 	
 	protected $_table_name = 'boxes';
 	protected $_order_by = 'id';
@@ -12,7 +12,6 @@ class boxes_model extends AB_Model{
 			}
 		
 		delete_files('./temporary/temp/', TRUE);
-		
 		$config['upload_path'] = './temporary/temp/';
 		$config['allowed_types'] = '*';
 		$config['max_size'] = '9000000';
@@ -31,9 +30,9 @@ class boxes_model extends AB_Model{
 		if(!file_exists(APPPATH.'models/boxes/'.$file['raw_name'])){
 			mkdir(APPPATH.'models/boxes/'.$file['raw_name'],0755,TRUE);
 			}
-		if(!file_exists('./assets/models/'.$file['raw_name'])){
-			mkdir('./assets/models/'.$file['raw_name'],0755,TRUE);
-    		 copy('./assets/models/index.html','./assets/models/'.$file['raw_name'].'/index.html');
+		if(!file_exists('../assets/models/'.$file['raw_name'])){
+			mkdir('../assets/models/'.$file['raw_name'],0755,TRUE);
+    		 copy('../assets/models/index.html','./assets/models/'.$file['raw_name'].'/index.html');
 			}
 
 		$getfile = get_dir_file_info("./temporary/temp");

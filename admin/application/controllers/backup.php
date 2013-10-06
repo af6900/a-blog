@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class backup extends Admin_Controller {
+class backup extends AB_Controller {
 
    public function __construct()
     {
@@ -10,7 +10,7 @@ class backup extends Admin_Controller {
 	
 	public function index()
 	{
-	 $this->db->cache_delete('backup', 'index');
+
 		
 	  if(!file_exists(APPPATH.'backup')){
 	     mkdir(APPPATH.'backup',0777,TRUE);
@@ -23,7 +23,7 @@ class backup extends Admin_Controller {
 	}
 	
 	public function create(){
-		$this->db->cache_delete('backup-create', 'index');
+
 		$this->load->dbutil();
 		
 		$prefs = array(

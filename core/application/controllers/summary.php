@@ -9,25 +9,36 @@ class summary extends AB_Controller {
 
     }
 	public function index(){
-
-		 $id = urldecode($this->input->get('id'));
-		 if ($id == ''){
-			$id = urldecode($this->uri->segment(2));
-			$id = str_replace('-',' ',$id);
+		$title = urldecode($this->uri->segment(2));
+		if (isset($title) AND is_string($title)){
+			   $title = urldecode($this->uri->segment(2));
+			   $title = str_replace('-',' ',$title);
+			   $article = $this->lib_database->get('article',NULL,array('title'=>$title)); 
+		}	
+		
+		 $id_get = urldecode($this->input->get('id'));
+		 if (isset($id_get) AND is_numeric($id_get)){
+ 				$article = $this->lib_database->get('article',NULL,array('title'=>$id_get)); 
 		 }
-	    
-		$article = $this->lib_database->get('article',NULL,array('title'=>$id)); 
+		 
+	    $id = urldecode($this->uri->segment(2));
+		if(isset($id) AND is_numeric($id)){
+				$article = $this->lib_database->get('article',NULL,array('id'=>$id));
+			}
+		
 		
 		foreach($article as $row)
 		{
-			$data = array('id'=>encrypt($row->id),
+			$data = array('fb'=> $row->id,
+						 'id'=>encrypt($row->id),
 						 'title'=>$row->title,
 						 'summary' => $row->summary,
 						 'fullText'=>$row->fulltext,
 						 'author'=>$row->author,
 						 'date'=>$row->date,
 						 'showComment' => $row->comment,
-						 'visit' => $row->visit);
+						 'visit' => $row->visit,
+						 'image' => $row->image);
 			
 		}
 		

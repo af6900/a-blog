@@ -16,6 +16,7 @@
           <li><?php echo anchor('fileManager',"فایل ها <span class='glyphicon glyphicon-file'></span>","title='فایل ها'")?></li>
           <li><?php echo anchor('admin-news',"ثبت اخبار <span class='glyphicon glyphicon-pencil'></span>","title='ثبت اخبار'")?></li>
           <li><?php echo anchor('article',"ثبت مطلب <span class='glyphicon glyphicon-pencil'></span>","title='ثبت مطلب'")?></li>
+          <!--<li><?php echo anchor('myupload',"اپلود <span class='glyphicon glyphicon-pencil'></span>","title='ثبت مطلب'")?></li>-->
       </ul>
         
   </div><!-- /.navbar-collapse -->

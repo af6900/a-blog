@@ -47,7 +47,7 @@ $route['login/(:any)'] = 'login';
 $route['validate_credentials'] = 'login/validate_credentials';
 
 $route['admin'] = 'admin';
-$route['admin(:any)'] = 'admin';
+//$route['admin(:any)'] = 'admin';
 
 $route['SaveWebConfig'] = 'configuration/SaveWebConfig';
 
@@ -204,6 +204,9 @@ $route['update-pages'] = 'pages/update';
 
 $route['banner'] = 'banner';
 
+
+$route['myupload'] = 'upload';
+$route['ajaxUpload'] = 'ajaxProcessor/upload';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

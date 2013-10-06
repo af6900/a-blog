@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class news extends Admin_Controller {
+class news extends AB_Controller {
 
    public function __construct()
     {
