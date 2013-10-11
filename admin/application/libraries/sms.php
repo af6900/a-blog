@@ -5,8 +5,8 @@ class CI_sms {
     private  $BASE_HTTP_URL = "http://www.payam-resan.com.com/APISend.aspx?";
  
   public function send($text, $tell) {
-		 $USERNAME = "af6900";  // your username (fill it with your username)
-		 $PASSWORD = "654321"; // your password (fill it with your password)
+		 $USERNAME = "123456";  // your username (fill it with your username)
+		 $PASSWORD = "123456"; // your password (fill it with your password)
 		 $senderNumber = "30007546"; // [FILL] sender number ; which is your 3000xxx number
          $recipientNumber = $tell; // [FILL] recipient number; the mobile number which will receive the message (e.g 0912XXXXXXX)
          $message = urlencode($text); // [FILL] the content of the message; (in url-encoded format !)
